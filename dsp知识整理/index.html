@@ -13,7 +13,7 @@
 
     <title>
         
-        Test - undefined
+        
         
     </title>
 
@@ -101,7 +101,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DSP%E6%A6%82%E8%BF%B0"><span class="toc-text">DSP概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%EF%BC%9A"><span class="toc-text">硬件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%EF%BC%9A"><span class="toc-text">软件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DSP%E5%88%86%E7%B1%BB"><span class="toc-text">DSP分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TMS320F2812"><span class="toc-text">TMS320F2812</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU"><span class="toc-text">CPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98"><span class="toc-text">内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97"><span class="toc-text">外设功能模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-text">寻址方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C28x%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-text">C28x流水线</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -133,11 +133,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        Test
+        
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2023-04-02 12:07:34</span></span>
+        <span class="attr">发布于：<span>2023-06-17 13:44:06</span></span>
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -145,20 +145,97 @@
 </span>
     </div>
     <div class="post-content ">
-        <blockquote><p>lorem hduawn oasjwi<br>aduifj fjshfuiiw iwdfhi</p>
-<footer><strong>0xtopus</strong><cite>test_book</cite></footer></blockquote>
+        <h1 id="DSP概述"><a href="#DSP概述" class="headerlink" title="DSP概述"></a>DSP概述</h1><h3 id="硬件："><a href="#硬件：" class="headerlink" title="硬件："></a>硬件：</h3><ul>
+<li>高速控制和信号处理</li>
+<li>采用流水线操作</li>
+<li>采用哈佛结构，数据存储区和程序存储区分离，数据总线和程序总线也是分开的</li>
+<li>大多配有硬件乘法器和加法器，同一时钟周期内可以完成累加和累乘</li>
+<li>零开销循环</li>
+</ul>
+<h3 id="软件："><a href="#软件：" class="headerlink" title="软件："></a>软件：</h3><ul>
+<li>显示MAC（乘加器）指令</li>
+<li>精简指令集</li>
+<li>专门的寻址方式</li>
+</ul>
+<h3 id="DSP分类"><a href="#DSP分类" class="headerlink" title="DSP分类"></a>DSP分类</h3><p>按数据格式分：</p>
+<ul>
+<li>定点</li>
+<li>浮点</li>
+</ul>
+<p>按用途分：</p>
+<ul>
+<li>通用</li>
+<li>专用</li>
+</ul>
+<h1 id="TMS320F2812"><a href="#TMS320F2812" class="headerlink" title="TMS320F2812"></a>TMS320F2812</h1><h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><ul>
+<li>32位定点CPU</li>
+<li>150MHz</li>
+<li>当频率为135MHz时，核心电压1.8V；当频率为150MHz时，核心电压为1.9V；输出IO口电压为3.3V</li>
+</ul>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul>
+<li>18kW RAM</li>
+<li>128kW Flash</li>
+</ul>
+<h3 id="外设功能模块"><a href="#外设功能模块" class="headerlink" title="外设功能模块"></a>外设功能模块</h3><ul>
+<li><p>控制类</p>
+<ul>
+<li>IO</li>
+<li>定时器</li>
+<li>PWM</li>
+</ul>
+</li>
+<li><p>测量类</p>
+<ul>
+<li>数字：捕获、正交编码</li>
+<li>模拟：ADC</li>
+</ul>
+</li>
+<li><p>通讯类</p>
+<ul>
+<li>UART</li>
+<li>eCAN</li>
+<li>SPI</li>
+<li>McBsp</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>外设中断扩展模块（PIE）</p>
+<ul>
+<li>支持45个外部中断</li>
+</ul>
+<p>片上存储器</p>
+<ul>
+<li>128kW Flash</li>
+<li>1kW的OTP型存储器</li>
+<li>18kW的SARAM<ul>
+<li>L0和L1：两个4kW的SARAM</li>
+<li>H0: 8kW</li>
+<li>M0和M1：两个1kW的SARAM</li>
+</ul>
+</li>
+<li>56个可编程IO口</li>
+<li>时钟和系统控制</li>
+<li>3个32位CPU定时器</li>
+<li>马达控制外设<ul>
+<li>两个事件管理器</li>
+</ul>
+</li>
+<li>12位ADC，16通道</li>
+</ul>
+<h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><ol>
+<li>直接寻址</li>
+<li>间接寻址</li>
+<li>寄存器寻址</li>
+<li>堆栈寻址</li>
+<li>数据&#x2F;地址&#x2F;IO空间立即寻址方式</li>
+<li>程序空间间接寻址方式</li>
+</ol>
+<h3 id="C28x流水线"><a href="#C28x流水线" class="headerlink" title="C28x流水线"></a>C28x流水线</h3><ul>
+<li>八级流水线，五个阶段</li>
+<li>取指令，译码，读取数据，执行，写回</li>
+<li></li>
+</ul>
 
-<figure class="highlight java"><figcaption><span>test.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;hello, w!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>pullQuote:</p>
-<blockquote class="pullquote"><p>lala</p>
-</blockquote>
-
-<p>iframe:</p>
-<iframe src="source/img/avatar1,png" width="300px" height="300px" frameborder="0" loading="lazy" allowfullscreen></iframe>
-
-<p>Image:</p>
-<img class="octopus&quot;">
         
         <br />
         <div id="comment-container">
