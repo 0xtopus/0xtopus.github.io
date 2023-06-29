@@ -1,7 +1,12 @@
 ---
 title: DSP知识整理
 ---
+
+
+推荐参考书籍：《手把手教你学DSP—基于TMS320X281x》（第3版） *顾卫钢*
+
 # 一、DSP概述
+
 ### 硬件：
 - 高速控制和信号处理
 - 采用流水线操作
@@ -138,6 +143,7 @@ SYSCLK经过分频可以得到低速外设时钟LSPCLK和高速外设时钟HSPCL
 - 备用模式：关闭CPU和外设时钟，OSC和PLL正常工作
 
 # 四、CPU定时器
+
 x2812内部有3个32位的CPU定时器，其中只有Timer0可供用户使用，Timer1和Timer2都被系统保留。
 
 欲使用CPU定时器来计时，需要设置两个寄存器：
@@ -424,4 +430,218 @@ Eva、Evb各有3个全比较单元（加起来总共6个），每个比较单元
 输出的PWM波类型和GPTimer是一样的。只是把T1CMPR改成CMPRx即可。
 
 带有死区控制的PWM不考，不写了。
+
+## 捕获单元
+
+捕获单元能够捕获外部输入引脚CAPx_QEPx的电平变化。当捕获到指定的电平变化时，捕获单元就记录下定时器的时间。利用两次捕获的时间差，捕获单元就可以测量出信号的脉宽。
+
+2812的Eva和Evb各有三个捕获单元CAP1 ~ 3和CAP4 ~ 6。每个捕获单元都有一个捕获输入
+
+引脚，通过配置相关寄存器可以捕获输入波形的上升沿、下降沿或者同时捕获上升沿和下降沿。当引脚检测到指定的变化时，所选用的定时器的值将被捕获并锁存到对应的2级FIFO堆栈中。注意，从引脚发生变化到锁存定时器的值需要至少2个时钟周期，所以**输入信号至少要保持2个时钟周期**。
+
+### 寄存器
+
+- 捕获控制寄存器CAPCONA, CAPCONB
+- 捕获FIFO状态寄存器CAPFIFOA， CAPFIFOB
+- 两级深度的FIFO堆栈CAPFIFOx, CAPFBOTx (x = 1 ~ 6)
+
+以Eva的CAP1为例，在堆栈为空的时候，捕获状态寄存器CAPFIFOA的CAP1FIFO状态位为00，发生一次捕获后，定时器计数寄存器T1CNT的值被存入栈顶，CAP1FIFO状态位为01，第二次捕获后，数据存入栈底，堆栈全满，CAP1FIFO状态位变为10；第三次捕获后，栈顶的数据出栈，第二次捕获的来到栈顶，第三次捕获的来到栈底。如果没有读取第一次捕获的值（第一次捕获的值丢失），则CAP1FIFO状态位变为11；否则如果在第三次捕获前已经读取了第一次捕获的值，则CAP1FIFO状态位仍为10.
+
+
+
+### 中断
+
+以Eva为例，捕获单元1具有捕获中断CAP1INT，捕获单元2有CAP2INT，捕获单元3有CAP3INT...
+
+中断发生的条件：
+
+1. 捕获单元捕获到信号发生指定的变化
+2. 此时CAPxFIFO不为0（堆栈非空）
+
+则此时中断标志位被置位。
+
+和中断相关的寄存器：
+
+- 中断标志寄存器EVAIFRC，EVBIFRC
+- 中断屏蔽寄存器EVAIMRC和EVBIMRC（用来使能中断的）
+
+## 正交编码电路
+
+每个事件管理器都有一个正交编码电路（QEP电路），光电码盘输出的两路正交编码信号从两个输入引脚输入到QEP电路，在通过两个QEP电路的译码器对正交编码信号进行译码，最后就能得到电机转子的转速、旋转方向、旋转位置等信息。
+
+
+
+```c
+/*
+ * 自己写的事件管理器Init函数
+ * 配置了全比较单元输出PWM波和捕获单元捕获上升下降沿
+ */
+void InitEv(void)
+{
+	/*
+	 * 配置GP Timer2
+	 */
+	EvaRegs.T2CON.bit.TENABLE = 0; 	// 暂时禁止t2计数
+	EvaRegs.T2CON.bit.TPS = 0;			// 输入计数时钟为HSPCLK = 75MHz
+	EvaRegs.T2CON.bit.TMODE = 2; 		// GP Timer2连续增计数模式
+	EvaRegs.T2CON.bit.TCLKS10 = 0; 	// 选择内部时钟T2CLK
+
+	EvaRegs.T2CNT = 0x0000;	// Clear the counter for GP timer 2
+	EvaRegs.T2PR = 0x3A97;		// 频率为5kHz，PR = 14999
+
+	/*
+	 * GP Timer2周期中断配置
+	*/
+	EvaRegs.EVAIMRB.bit.T2PINT = 1;		// 使能GP Timer2周期中断
+	EvaRegs.EVAIFRB.bit.T2PINT = 1;			// 复位GP Timer2周期中断标志位
+
+
+	/*
+	 * 配置GP Timer1
+	 */
+	EvaRegs.T1CON.bit.TENABLE = 0; 	// 暂时禁止t1计数
+	EvaRegs.T1CON.bit.TPS = 0;			// 输入计数时钟为HSPCLK = 75MHz
+	EvaRegs.T1CON.bit.TMODE = 2; 		// GP Timer1连续增计数模式
+	EvaRegs.T1CON.bit.TCLKS10 = 0; 	// 选择内部时钟T1CLK
+
+	EvaRegs.T1CNT = 0x0000;		// Clear the counter for GP timer 1
+	EvaRegs.T1PR = 0x3A97;		// 频率为5kHz，PR = 14999
+
+	/*
+	 * 配置全比较模块
+	 */
+	EvaRegs.COMCONA.bit.CENABLE = 1;		// 使能EVA的全比较操作
+	EvaRegs.COMCONA.bit.FCOMPOE = 1;	// 使能比较输出
+
+	EvaRegs.COMCONA.bit.CLD = 0;				// 比较寄存器重载条件为下溢中断
+
+	EvaRegs.CMPR1 = 0x1D4C;	// 默认占空比为50%
+	EvaRegs.CMPR2 = 0x1D4C;	// 默认占空比为50%
+	EvaRegs.CMPR3 = 0x1D4C;	// 默认占空比为50%
+	EvaRegs.ACTR.all = 0;			// 全部强制低
+
+	/*
+	 * GP Timer1下溢中断配置
+	 */
+	EvaRegs.EVAIMRA.bit.T1UFINT = 1;		// 使能GP Timer1下溢中断
+	EvaRegs.EVAIFRA.bit.T1UFINT = 1;		// 复位GP Timer1下溢中断标志位
+    
+    
+    EvaRegs.CAPFIFO.all = 0; // 初始化CAPFIFOA
+
+	EvaRegs.CAPCON.bit.CAPRES = 0; 			// 清零捕获寄存器
+	EvaRegs.CAPCON.bit.CAPQEPN = 1; 		// 使能捕获单元1,2
+	EvaRegs.CAPCON.bit.CAP3EN = 1;			// 使能捕获单元3
+	EvaRegs.CAPCON.bit.CAP3TSEL = 1;		// 捕获单元3时基为timer1
+	EvaRegs.CAPCON.bit.CAP12TSEL = 1;		// 捕获单元1,2时基为timer1
+
+	EvaRegs.CAPCON.bit.CAP1EDGE = 0x3;	// 捕获单元1捕获边沿为上升下降沿
+	EvaRegs.CAPCON.bit.CAP2EDGE = 0x3;	// 捕获单元2捕获边沿为上升下降沿
+	EvaRegs.CAPCON.bit.CAP3EDGE = 0x3;	// 捕获单元3捕获边沿为上升下降沿
+
+	EvaRegs.EVAIMRC.bit.CAP1INT = 1;		// 使能捕获单元1中断
+	EvaRegs.EVAIMRC.bit.CAP2INT = 1;		// 使能捕获单元2中断
+	EvaRegs.EVAIMRC.bit.CAP3INT = 1;		// 使能捕获单元3中断
+	EvaRegs.EVAIFRC.all = 0x7;		// 复位捕获单元中断标志位
+
+	EvaRegs.T1CON.bit.TENABLE = 1; 	// 使能t1计数
+
+}
+```
+
+
+
+# 九、ADC
+
+- 2812的ADC分辨率为12bit，具有流水线结构，具有16个通道，分为2组：一组为ADCINA0 ~ ADCINA7，另一组为ADCINB0 ~ ADCINB7，分别对应两个采样保持器。虽然通道很多，但是转换器只有一个，所以要对各通道进行排序转换。
+
+- ADC模块的时钟最高频率为25MHz，最高采样率为12.5MSPS（sample per second）。
+- ADC电压的采样范围是<u>0 ~ 3 V</u>
+- ADC模块对一个序列的通道开始转换必须要有一个启动信号来触发，当信号到来时，相应的序列发生器就开始对内部预先指定的通道进行转换。
+- ADC有两种工作模式：
+  - 两个独立的8通道
+  - 级联16个通道
+- ADC共有16个结果寄存器来存储转换的数值。
+
+## 工作方式
+
+通过16位的ADC输入通道选择序列控制寄存器ADCCHSELSEQx（x=1, 2, 3, 4）可以控制ADC通道的<u>转换顺序</u>。
+
+每个ADCCHSELSEQx被分为了4段，每段其名为：CONVxx（x = 00 ~ 15）。
+
+- 当ADC工作在**双序列发生器模式**下时，序列发生器SEQ1使用ADCCHSELSEQ1和2，每个CONVx可以选择的通道为ADCINA0 ~ 7；SEQ2使用ADCCHSELSEQ3和4，每个CONVx可以选择的通道为ADCINB0 ~ 7;
+- 当ADC工作在**级联模式**下时则都可自由选择。
+
+ADC转换的<u>通道数量</u>由最大通道转换寄存器ADCMAXCONV决定。
+
+- 当工作在双序列发生器模式下时，该寄存器的低三位[0:2]所代表的**二进制数 + 1**决定SEQ1序列发生器转换的通道数量；[4:6]位决定SEQ2转换的通道数量。
+- 工作在级联模式下时，低四位[0:3]决定转换通道的数量，为其代表的**二进制数 + 1**
+
+ADC还有顺序采样和并发采样两种采样方式，所以排列组合一下，就有：
+
+- 双通道顺序采样
+- 级联顺序采样
+- 双通道并发采样
+- 级联并发采样
+
+四种模式。
+
+下面是一个配置双序列顺序采样的例子：
+
+```c
+	AdcRegs.ADCTRL1.bit.SEQ_CASC = 0; //独立双排序模式
+	AdcRegs.ADCTRL1.bit.CONT_RUN = 0; //启动停止模式
+
+	// 级联双排序的排序器配置
+	AdcRegs.MAX_CONV.bit.MAX_CONV = 0x0032; // B组采样通道为4，A组采样通道为3
+	AdcRegs.CHSELSEQ1.bit.CONV00 = 0x0; // 选择模拟通道ADCINA0
+	AdcRegs.CHSELSEQ1.bit.CONV01 = 0x1; // 选择模拟通道ADCINA1
+	AdcRegs.CHSELSEQ1.bit.CONV02 = 0x2; // 选择模拟通道ADCINA2
+
+	AdcRegs.CHSELSEQ3.bit.CONV08 = 0xB; // 选择模拟通道ADCINB3
+	AdcRegs.CHSELSEQ3.bit.CONV08 = 0xC; // 选择模拟通道ADCINB4	
+	AdcRegs.CHSELSEQ3.bit.CONV08 = 0xD; // 选择模拟通道ADCINB5
+	AdcRegs.CHSELSEQ3.bit.CONV08 = 0xE; // 选择模拟通道ADCINB6
+```
+
+序列发生器的工作模式有两种：启停模式和连续转换模式。由ADCTRL1的CONT_RUN位控制。在连续转换模式下，当一次序列转换结束后，会自动从该序列头部开始重新进行转换。当工作在启停模式下的时候，序列发生器完成一次转换后会停留在最后状态，需要先**手动复位**后才能在下一次SOC（start of conversion）信号到来时才会重新开始转换。
+
+```c
+AdcRegs.ADCTRL2.bit.RST_SEQ1 = 1;  // 手动复位序列发生器
+```
+
+## 结果读取
+
+ADC的采样结果存储在16个16位的ADC结果寄存器里，左对齐，结果占据高12位，所以计算的时候需要右移4位。
+
+$(ADResult >> 4) = \frac{(V_{i}  - ADCCLO)}{3 V} *4095$
+
+ADCLO一般接模拟地，所以为0：
+
+```c
+res = (AdcRegs.RESULT0 >> 4) / 4095 * 3;
+```
+
+
+
+# 十、SPI
+
+串行外设接口，是一种**低速同步串行通信接口**，而SCI是同步通信。
+
+- 异步通信和同步通信的区别在于**收发双方是否使用同一个时钟信号来控制数据收、发移位操作**。
+
+## 工作方式
+
+SPI总线至少包含一根时钟线和数据线。2812使用4线制SPI，以主从方式进行工作，全双工通信。通信系统中通常有一个主设备和多个从设备。
+
+|                     线路名称                     |           功能           |
+| :----------------------------------------------: | :----------------------: |
+|                       SCK                        | 串行时钟线（主设备控制） |
+|                       MISO                       |    主机输入/从机输出     |
+|                       MOSI                       |    主机输出/从机输入     |
+| <span style="text-decoration:overline">CS</span> | 是低电平有效的从机选择线 |
+
+SPI的波特率 = SPICLK <= LSPCLK/4。实际使用时要确保小于从机的最大允许速率。
+
+<img src="..\img\DSP\spi.png" alt="spi" style="zoom:75%;" />
 
