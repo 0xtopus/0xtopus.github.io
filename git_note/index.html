@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta property="og:type" content="website">
+    <meta name="description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> h4x0rdecimal 0xtopus </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>0xtopus</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git%E9%85%8D%E7%BD%AE"><span class="toc-text">git配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8git"><span class="toc-text">使用git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-text">文件状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E5%9F%BA-rebase"><span class="toc-text">变基(rebase)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%8F%98%E5%9F%BA%E5%90%88%E5%B9%B6commits"><span class="toc-text">利用变基合并commits</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chatGPT-expaination-on-the-command"><span class="toc-text">chatGPT expaination on the command</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tag%E6%A0%87%E7%AD%BE"><span class="toc-text">tag标签</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93-remote"><span class="toc-text">远程仓库(remote)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%BA%93%E7%9A%84%E6%93%8D%E4%BD%9C%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-text">远程库的操作的命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#origin-x2F-main-x2F-master"><span class="toc-text">origin&#x2F;main&#x2F;master</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E4%BB%A3%E7%90%86%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-text">git代理的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%BA%93%E8%A7%A3%E5%86%B3push%E6%8E%88%E6%9D%83%E9%97%AE%E9%A2%98"><span class="toc-text">远程库解决push授权问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh%E6%96%B9%E6%B3%95"><span class="toc-text">ssh方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GitHub%E6%B7%BB%E5%8A%A0-x2F-%E5%88%A0%E9%99%A4%E5%85%B3%E8%81%94%E7%9A%84%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">GitHub添加&#x2F;删除关联的远程仓库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8D%A2%E9%82%AE%E7%AE%B1%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">换邮箱后的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gitignore"><span class="toc-text">gitignore</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-ignore-%E9%85%8D%E7%BD%AE"><span class="toc-text">git ignore 配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bgit%E9%85%8D%E7%BD%AE"><span class="toc-text">查看git配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub-%E5%8F%AA%E6%B7%BB%E5%8A%A0%E5%B7%B2%E8%BF%BD%E8%B8%AA%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-text">GitHub 只添加已追踪的文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Github-ICU"><span class="toc-text">Github ICU</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub%E5%A4%A7%E9%87%8F%E5%88%A0%E9%99%A4%E5%92%8C%E6%B7%BB%E5%8A%A0%E6%96%87%E6%A1%A3%E5%90%8E%E6%89%B9%E9%87%8F%E6%9A%82%E5%AD%98"><span class="toc-text">GitHub大量删除和添加文档后批量暂存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub%E9%87%8D%E5%91%BD%E5%90%8D%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">GitHub重命名远程仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-text">小技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6"><span class="toc-text">深入研究</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2"><span class="toc-text">GitHub部署静态页面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E4%B9%A0"><span class="toc-text">复习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF-1"><span class="toc-text">分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Merge"><span class="toc-text">Merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rebase"><span class="toc-text">Rebase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HEAD-Moving"><span class="toc-text">HEAD Moving</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Undo-changes"><span class="toc-text">Undo changes</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> h4x0rdecimal 0xtopus </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-06-30 04:35:45</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h1><p><code>git config --global user.name &quot;...&quot;</code></p>
+<p><code>git config --global user.email&quot;...&quot;</code></p>
+<h1 id="使用git"><a href="#使用git" class="headerlink" title="使用git"></a>使用git</h1><p><code>git status</code>: 查看当前目录的文件状态</p>
+<p><code>git init</code> :初始化仓库</p>
+<h1 id="文件状态"><a href="#文件状态" class="headerlink" title="文件状态"></a>文件状态</h1><ul>
+<li><p>未跟踪</p>
+</li>
+<li><p>已跟踪</p>
+<ul>
+<li>暂存：文件已修改且保存，但还没有提交到git仓库</li>
+<li>未修改</li>
+<li>已修改</li>
+</ul>
+<p>刚刚添加到仓库的文件是未跟踪状态。</p>
+<p><code>git add 文件名</code> ：将文件从<strong>未跟踪</strong>切换到<strong>暂存</strong>的状态</p>
+<p><code>git add *</code>：将所有已修改 (未跟踪) 的文件暂存</p>
+<p><code>git add -u</code>：只对<strong>已跟踪文件</strong>有效，把所有已修改的已跟踪文件暂存</p>
+<p><code>git add -A</code>：把所有的变化（包括删除的和添加的文件）暂存</p>
+<p><code>git commit -m &quot;&lt;message&gt;&quot; </code>：将<strong>暂存</strong>的文件存到仓库里, message是本次提交的日志信息，状态变成 <strong>未修改</strong></p>
+<p><code>git commit -a -m &quot;&lt;message&gt;&quot;</code>:提交所有已修改的文件</p>
+<p>文件发生变化时，变成<strong>已修改</strong>的状态</p>
+</li>
+</ul>
+<p>​		<code>git log</code>：查看历次提交的记录</p>
+<p>​		bouns: <code>git log --pretty=oneline</code></p>
+<p>可以在vscode里使用图形化界面git</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol>
+<li>重置文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git restore &lt;filename&gt; </span><br><span class="line"><span class="comment">#修改后，还未暂存时，可以用来恢复文件</span></span><br><span class="line"></span><br><span class="line">git restore --stage &lt;filename&gt; <span class="comment">#取消暂存状态，不会取消删除的文件</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要取回被删的文件，还要再restore一下</p>
+<ol start="2">
+<li><p>恢复某版本的某文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 9f955d85359fc8e4504d7220f13fad34f8f2c62b ./recipes/tofu</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>恢复版本<code>9f955d85359fc8e4504d7220f13fad34f8f2c62b</code>的文件<code>./recipes/tofu</code></li>
+<li>注意，<code>checkout</code>命令不会改变提交记录，且必须&#x3D;&#x3D;指定要恢复的文件名&#x3D;&#x3D;，否则会出现bug（如遇此种情况，见：<a target="_blank" rel="noopener" href="https://sp18.datastructur.es/materials/guides/git-wtfs.html">Git WTFs</a>）</li>
+<li>回滚之后，需要再<code>commit</code>一次。</li>
+</ul>
+</li>
+<li><p><span id="change-commit-messages">修改最近的提交注释信息</span>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
+
+<p>更多请参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_17011423/article/details/104648075">https://blog.csdn.net/qq_17011423/article/details/104648075</a></p>
+<ul>
+<li>修改前几次的提交注释信息：<a target="_blank" rel="noopener" href="https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message">https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message</a></li>
+</ul>
+</li>
+<li><p>删除文件</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">rm</span> &lt;filename&gt;</span><br><span class="line">git <span class="built_in">rm</span> -f &lt;filename&gt; <span class="comment">#强制删除</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<ol start="5">
+<li>移动文件（重命名）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">mv</span> from to <span class="comment">#移动文件/重命名文件</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>git在commit文件时，每次都会创建一个节点，记录代码的状态。</p>
+<p>节点会构成一个树状结构，存在分支。</p>
+<p>默认情况下，只有一个分支，叫做 “master”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="comment">#查看当前分支</span></span><br><span class="line">git branch &lt;branch name&gt; <span class="comment">#新建一个分支</span></span><br><span class="line">git branch -D &lt;branch name&gt; <span class="comment">#删除分支</span></span><br><span class="line">git switch &lt;branch name&gt;	<span class="comment">#切换分支</span></span><br><span class="line">git switch -c &lt;branch name&gt; <span class="comment">#创建并切换分支</span></span><br></pre></td></tr></table></figure>
+
+<p>在开发中，都是在自己的分支里写代码。写好无误后，再合并分支。</p>
+<ul>
+<li>合并分支</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git switch master	<span class="comment">#切换到主分支</span></span><br><span class="line">git merge &lt;branch name&gt; <span class="comment">#合并分支</span></span><br><span class="line">git branch -D &lt;branch name&gt; <span class="comment">#合并之后可以删除不需要的分支</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>在装了插件的VScode里面的COMMIT DETAILS里，可以通过graph来查看所有分支的情况</p>
+<img src="..\img\gitPics\image-20221219172950437.png" alt="image-20221219172950437" style="zoom:50%;" />
+
+<p>有的时候，分支可以快速合并（fast-forward)，但有时候，合并时分支的文件之间会产生冲突。git会帮助你标识出冲突所在，这时候需要手动合并，然后暂存和提交：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>wawawa<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>bugbug fixfix<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">=======</span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>jjj<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>wuwuwu<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>wiwdiu<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; test</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="变基-rebase"><a href="#变基-rebase" class="headerlink" title="变基(rebase)"></a>变基(rebase)</h1><p>当开发分支较多时，merge会把分支树变得很乱。此时可以使用变基来合并分支。</p>
+<p>&#x3D;&#x3D;注意：&#x3D;&#x3D;变基操作一般只在自己的本地仓库使用，远程服务器的仓库不可以使用变基。</p>
+<ol>
+<li>发起变基时，git会先找到两条最近分支的最近祖先	</li>
+<li>把当前分支和合并分支的共同祖先进行比对，把所有的变化提取出来存到一个临时文件里</li>
+<li>将当前分支的祖先指向目标分支的基底</li>
+<li>从当前基底开始重新执行之前临时存起来的操作</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git switch &lt;filename&gt;</span><br><span class="line">git rebase &lt;target filename&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用变基合并commits"><a href="#利用变基合并commits" class="headerlink" title="利用变基合并commits"></a>利用变基合并commits</h3><p>参考：</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2563632/how-can-i-merge-two-commits-into-one-if-i-already-started-rebase">https://stackoverflow.com/questions/2563632/how-can-i-merge-two-commits-into-one-if-i-already-started-rebase</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/12522565/how-can-i-combine-two-commits-into-one-commit">https://stackoverflow.com/questions/12522565/how-can-i-combine-two-commits-into-one-commit</a></p>
+</li>
+</ol>
+<p><strong>注意事项</strong>：如果你正在使用远程仓库，且这个仓库的贡献者不止你一个人，那么在主分支上进行下列操作可能会使他人的文件丢失。您最好&#x3D;&#x3D;在自己的分支上进行变基&#x3D;&#x3D;，或者在操作前与他人充分沟通。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>使用<code>git log --pretty=oneline</code>查看你需要合并的commits:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">a931ac7c808e2471b22b5bd20f0cad046b1c5d0d c</span><br><span class="line">b76d157d507e819d7511132bdb5a80dd421d854f b</span><br><span class="line">df239176e1a2ffac927d8b496ea00d5488481db5 a</span><br></pre></td></tr></table></figure>
+
+<p>假设提交的先后顺序是 a –&gt; b –&gt; c，你需要合并 c 和 b</p>
+<ol start="2">
+<li>使用<code>git rebase -i HEAD~2</code> （<a href="#chatGPT expaination on the command">chatGPT expaination on the command</a>）,这个命令会打开一个文本文件，让你查看最近的两条提交记录，注意和<code>git log</code>输出不同，<strong>较新的提交记录在下面，比较旧的在上面。</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">pick b76d157 b</span><br><span class="line">pick a931ac7 c</span><br><span class="line"></span><br><span class="line"><span class="comment"># Rebase df23917..a931ac7 onto df23917</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Commands:</span></span><br><span class="line"><span class="comment">#  p, pick = use commit</span></span><br><span class="line"><span class="comment">#  r, reword = use commit, but edit the commit message</span></span><br><span class="line"><span class="comment">#  e, edit = use commit, but stop for amending</span></span><br><span class="line"><span class="comment">#  s, squash = use commit, but meld into previous commit</span></span><br><span class="line"><span class="comment">#  f, fixup = like &quot;squash&quot;, but discard this commit&#x27;s log message</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># If you remove a line here THAT COMMIT WILL BE LOST.</span></span><br><span class="line"><span class="comment"># However, if you remove everything, the rebase will be aborted.</span></span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>把<strong>较新的commit</strong>前面的<code>pick</code>改成<code>squash</code>，然后保存并退出 :</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pick   b76d157 b</span><br><span class="line">squash a931ac7 c</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>之后你会得到提示：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is a combination of 2 commits.</span></span><br><span class="line"><span class="comment"># The first commit&#x27;s message is:</span></span><br><span class="line"></span><br><span class="line">b</span><br><span class="line"></span><br><span class="line"><span class="comment"># This is the 2nd commit message:</span></span><br><span class="line"></span><br><span class="line">c</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>再次用<code>git log --pretty=oneline</code>查看，就会看到：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">18fd73d3ce748f2a58d1b566c03dd9dafe0b6b4f b and c</span><br><span class="line">df239176e1a2ffac927d8b496ea00d5488481db5 a</span><br></pre></td></tr></table></figure>
+
+<p>大功告成！</p>
+<p>如果你对commit信息不满意，那么可以自行<a href="#change-commit-messages">修改commit信息</a>。</p>
+<ol start="6">
+<li>如果你在推送到远程仓库时失败了，尝试使用<code>git push -f</code> 来进行推送。<strong>请确保你的这步操作不会影响到正在使用同一仓库的其他人！！！</strong></li>
+</ol>
+<h3 id="chatGPT-expaination-on-the-command"><a href="#chatGPT-expaination-on-the-command" class="headerlink" title="chatGPT expaination on the command"></a>chatGPT expaination on the command</h3><blockquote>
+<p>The command <code>git rebase -i HEAD~6</code> starts an interactive rebase process that allows you to interactively edit the last six commits on the current branch.</p>
+<p>More specifically, the <code>-i</code> flag tells Git to start an interactive rebase, while <code>HEAD~6</code> specifies the parent of the current commit. In this case, the parent of the current commit is six commits ago.</p>
+<p>By running this command, Git will open an interactive file in your default text editor, showing you the last six commits on the branch. You can then edit the file to choose which commits to keep, squash, or edit, among other options. Once you’ve made your changes and saved the file, Git will apply your changes and rewrite the Git history of the branch with your new commit history.</p>
+<p>Note that the <code>git rebase</code> command should be used with caution, especially when rewriting Git history. If you’re working with a shared repository or collaborating with others, you should communicate with them before rewriting the Git history of a branch.</p>
+</blockquote>
+<h1 id="tag标签"><a href="#tag标签" class="headerlink" title="tag标签"></a>tag标签</h1><ul>
+<li>分离头指针：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch &lt;commit <span class="built_in">id</span>&gt; --detach   <span class="comment">#commit id可以只写前几位</span></span><br></pre></td></tr></table></figure>
+
+<p>把头指针移动到早期创建的某个节点上。注意：&#x3D;&#x3D;此时只能预览，不可以修改和提交代码。&#x3D;&#x3D;</p>
+<ul>
+<li>如果要在早期的节点上进行修改，请在该早期节点上&#x3D;&#x3D;创建新分支&#x3D;&#x3D;：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch -c &lt;new branch name&gt; &lt;commit <span class="built_in">id</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>但是，如果版本很多，找到某个特定的节点很困难。使用<strong>标签</strong>来给特定的节点做记号。</p>
+<ul>
+<li>标签</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git tag <span class="comment">#显示当前节点的所有标签</span></span><br><span class="line">git tag &lt;tag name&gt; <span class="comment">#给当前节点添加一个标签 比如 v1.0</span></span><br><span class="line">git tag &lt;tag name&gt; &lt;cmt <span class="built_in">id</span>&gt; <span class="comment">#给某个节点添加标签</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用标签来操作：</span></span><br><span class="line">git push &lt;remote&gt; &lt;tag name&gt; <span class="comment">#给远程仓库的版本加标签(推送本地标签到远程仓库)</span></span><br><span class="line">git push &lt;remote&gt; --tags <span class="comment">#推送所有本地标签</span></span><br><span class="line">git -d &lt;tag name&gt; <span class="comment">#删除本地标签</span></span><br><span class="line">git push &lt;remote&gt; --delete &lt;tagname&gt; <span class="comment">#删除远程仓库的标签</span></span><br></pre></td></tr></table></figure>
+
+<p>之后，我们就可以通过标签来快速之前的定位节点，创建新分支了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch -c &lt;tag name&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="远程仓库-remote"><a href="#远程仓库-remote" class="headerlink" title="远程仓库(remote)"></a>远程仓库(remote)</h1><ul>
+<li>GitHub</li>
+<li>Gitee</li>
+</ul>
+<p>上传到github：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/lilichao/git-demo.git</span><br><span class="line"><span class="comment"># git remote add &lt;remote name&gt; &lt;url&gt;</span></span><br><span class="line"></span><br><span class="line">git branch -M main</span><br><span class="line"><span class="comment"># 修改分支的名字的为main</span></span><br><span class="line"></span><br><span class="line">git push -u origin main</span><br><span class="line"><span class="comment"># git push 将代码上传服务器上</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="远程库的操作的命令"><a href="#远程库的操作的命令" class="headerlink" title="远程库的操作的命令"></a>远程库的操作的命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="comment"># 列出当前的关联的远程库</span></span><br><span class="line">git remote add &lt;远程库名&gt; &lt;url&gt; <span class="comment"># 关联远程仓库</span></span><br><span class="line">git remote remove &lt;远程库名&gt;  <span class="comment"># 删除远程库</span></span><br><span class="line"></span><br><span class="line">git push -u &lt;远程库名&gt; &lt;分支名&gt; <span class="comment"># 向远程库推送代码，并和当前分支关联</span></span><br><span class="line">git push &lt;远程库&gt; &lt;本地分支&gt;:&lt;远程分支&gt; <span class="comment">#推送到指定的远程分支</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> &lt;url&gt; <span class="comment"># 从远程库下载代码</span></span><br><span class="line">git <span class="built_in">clone</span> &lt;url&gt; &lt;new filename&gt;<span class="comment"># 从远程库下载代码,并重命名</span></span><br><span class="line"></span><br><span class="line">git push <span class="comment"># 如果本地的版本低于远程库，push默认是推不上去</span></span><br><span class="line">git fetch <span class="comment"># 要想推送成功，必须先确保本地库和远程库的版本一致，fetch它会从远程仓库下载所有代码，但是它不会将代码和当前分支自动合并</span></span><br><span class="line">		 <span class="comment"># 使用fetch拉取代码后，必须要手动对代码进行合并</span></span><br><span class="line">git merge origin/master <span class="comment">#手动合并</span></span><br><span class="line">git pull  <span class="comment"># 从服务器上拉取代码并自动合并 </span></span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;注意：&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;1. 推送代码之前，一定要先从远程库中拉取最新的代码&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;2. 写自己的代码前，一定要创建新分支&#x3D;&#x3D;</p>
+<h2 id="origin-x2F-main-x2F-master"><a href="#origin-x2F-main-x2F-master" class="headerlink" title="origin&#x2F;main&#x2F;master"></a>origin&#x2F;main&#x2F;master</h2><p>来源：<a target="_blank" rel="noopener" href="https://blog.csdn.net/reykou/article/details/104866348">https://blog.csdn.net/reykou/article/details/104866348</a></p>
+<ol>
+<li>GIT 初始化：本地默认分支叫 master、服务器默认名为 origin。本地分支 master 同步到服务器上、服务器节点变成 orgin&#x2F;master</li>
+<li>本地创建分支名为 branch，本地分支 branch 同步到服务器上、服务器节点变成 orgin&#x2F;branch</li>
+<li>更新本地分支 master，用本地分支 master 更新服务器节点 orgin&#x2F;master</li>
+</ol>
+<h2 id="git代理的设置"><a href="#git代理的设置" class="headerlink" title="git代理的设置"></a>git代理的设置</h2><p>远程库连接很缓慢，那么，我们可以通过配置代理来解决这个问题。</p>
+<p>首先查看你的代理软件的相关设置，搞清楚你代理使用的本地socks端口：</p>
+<img src="..\img\gitPics\socksPort.png" style="zoom:100%;" />
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:10808  <span class="comment">#设置为你自己的端口，比如我的是10808</span></span><br><span class="line"></span><br><span class="line">git config --global https.proxy https://127.0.0.1:10808</span><br><span class="line"></span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line"></span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://gist.github.com/laispace/666dd7b27e9116faece6">https://gist.github.com/laispace/666dd7b27e9116faece6</a></p>
+<h2 id="远程库解决push授权问题"><a href="#远程库解决push授权问题" class="headerlink" title="远程库解决push授权问题"></a>远程库解决push授权问题</h2><p>配置完代理，可能会引发如下问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Administrator@USER-20160428EL MINGW64 /f/awsl/Java/cs61b/AceMyFile (master)</span><br><span class="line">$ git push origin master</span><br><span class="line">fatal: NotSupportedException encountered.</span><br><span class="line">   The ServicePointManager does not support proxies with the socks5h scheme.</span><br><span class="line">error: unable to <span class="built_in">read</span> askpass response from <span class="string">&#x27;E:/git/Git/mingw64/libexec/git-core/git-gui--askpass&#x27;</span></span><br><span class="line">Username <span class="keyword">for</span> <span class="string">&#x27;https://github.com&#x27;</span>: xxxx</span><br><span class="line">remote: Support <span class="keyword">for</span> password authentication was removed on August 13, 2021.</span><br><span class="line">remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories<span class="comment">#cloning-with-https-urls for information on currently recommended modes of authentication.</span></span><br><span class="line">fatal: Authentication failed <span class="keyword">for</span> <span class="string">&#x27;https://github.com/xxxx/xxxx.git/&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果用VSCode推送好像可以绕开这个问题。</p>
+<p>但是，如果使用命令行来推送：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line">fatal: NotSupportedException encountered.</span><br><span class="line">   The ServicePointManager does not support proxies with the socks5h scheme.</span><br><span class="line">error: unable to <span class="built_in">read</span> askpass response from <span class="string">&#x27;E:/apps/git/Git/mingw64/libexec/git-core/git-gui--askpass&#x27;</span></span><br><span class="line">remote: Support <span class="keyword">for</span> password authentication was removed on August 13, 2021.</span><br><span class="line">remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories<span class="comment">#cloning-with-https-urls for information on currently recommended modes of authentication.</span></span><br><span class="line">fatal: Authentication failed <span class="keyword">for</span> <span class="string">&#x27;https://github.com/0xtopus/CS61B-repo.git/&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>发现2021年8月13日之后URL推送的方法就已经不支持了。</p>
+<p>于是，我们可以采用ssh的方法来推送。</p>
+<h3 id="ssh方法"><a href="#ssh方法" class="headerlink" title="ssh方法"></a>ssh方法</h3><p>参考1：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yuqiliu/p/12551258.html">https://www.cnblogs.com/yuqiliu/p/12551258.html</a></p>
+<p>参考2：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lonyw/article/details/75392410">https://blog.csdn.net/lonyw/article/details/75392410</a></p>
+<ol>
+<li><p>先查看自己本地设置的邮箱：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config –global user.email</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你设置的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>代码参数含义：</p>
+<p>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。</p>
+<p>然后会输出一些提示让你操作。连续按三个回车，全部默认即可。</p>
+<p>（三个操作分别是：选择使用默认路径存放ssh秘钥（<code>/c/Users/Administrator/.ssh/id_rsa</code>），不使用<code>paaphrase</code>私钥，确认私钥。</p>
+<p>关于私钥的作用，一般可以不要：</p>
+<blockquote>
+<p>What is passphrase in git?</p>
+<p>With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. <strong>To add an extra layer of security, you can add a passphrase to your SSH key</strong>. To avoid entering the passphrase every time you connect, you can securely save your passphrase in the SSH agent. </p>
+<p>source: <a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases</a></p>
+</blockquote>
+<p>完成以上操作，你会看到类似下面的输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/Administrator/.ssh/id_rsa):</span><br><span class="line">Created directory <span class="string">&#x27;/c/Users/Administrator/.ssh&#x27;</span>.</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/Administrator/.ssh/id_rsa</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/Administrator/.ssh/id_rsa.pub</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:lhiwE3T6NRzcttxFPBj5LDpy0CtmnYG/55NqOuRK3Tk gsy@gsy123mailbox.com</span><br><span class="line">The key<span class="string">&#x27;s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 3072]----+</span></span><br><span class="line"><span class="string">|   .+ ....  .*.  |</span></span><br><span class="line"><span class="string">|     * ...o o +  |</span></span><br><span class="line"><span class="string">|    + . += o + . |</span></span><br><span class="line"><span class="string">|     o +oo= o o  |</span></span><br><span class="line"><span class="string">|      o S+ = .   |</span></span><br><span class="line"><span class="string">|       o*.O.     |</span></span><br><span class="line"><span class="string">|      .=.+Eo .   |</span></span><br><span class="line"><span class="string">|     .  o o.+    |</span></span><br><span class="line"><span class="string">|      ...+.+..   |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>得到输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host <span class="string">&#x27;github.com (140.82.112.4)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">ECDSA key fingerprint is SHA256:xxxxxx.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no/[fingerprint])? </span></span><br></pre></td></tr></table></figure>
+
+<p>输入yes，回车继续，看到如下输出即成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning: Permanently added <span class="string">&#x27;github.com,140.82.112.4&#x27;</span> (ECDSA) to the list of known hosts.</span><br><span class="line">Hi xxxx! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>接下来可以通过<code>git remote -v</code>查看远程主机的状态，看到：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  https://github.com/xxxx.git (fetch)</span><br><span class="line">origin  https://github.com/xxxx.git (push)</span><br></pre></td></tr></table></figure>
+
+<p>说明还是通过URL方式访问，接下来我们来修改为ssh方式。</p>
+</li>
+<li><p>打开你的github仓库页面：</p>
+<img src="..\img\gitPics\ssh.png" style="zoom:75%;" />
+</li>
+<li><p>输入下列命令：</p>
+</li>
+</ol>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@github.com:xxxx.git</span><br></pre></td></tr></table></figure>
+
+<p>   <code>git@github.com:xxxx.git</code>就是你刚刚复制的内容。</p>
+<p>   再次<code>git remote -v</code></p>
+<p>   看到：</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  git@github.com:xxxx.git (fetch)</span><br><span class="line">origin  git@github.com:xxxx.git (push)</span><br></pre></td></tr></table></figure>
+
+<p>   就大功告成啦！</p>
+<p>   现在就可以直接push了：</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<h2 id="GitHub添加-x2F-删除关联的远程仓库"><a href="#GitHub添加-x2F-删除关联的远程仓库" class="headerlink" title="GitHub添加&#x2F;删除关联的远程仓库"></a>GitHub添加&#x2F;删除关联的远程仓库</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ltstud/article/details/79935001">https://blog.csdn.net/ltstud/article/details/79935001</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add &lt;远程仓库名&gt; &lt;本地库名&gt;</span><br><span class="line">git remote <span class="built_in">rm</span> &lt;远程仓库名&gt; </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="换邮箱后的配置"><a href="#换邮箱后的配置" class="headerlink" title="换邮箱后的配置"></a>换邮箱后的配置</h1><p>比如ssh什么的，参见：<a target="_blank" rel="noopener" href="https://gist.github.com/Heron-Wang/1f608c4c93065d1ebd67f7b29e3be791">https://gist.github.com/Heron-Wang/1f608c4c93065d1ebd67f7b29e3be791</a></p>
+<h1 id="gitignore"><a href="#gitignore" class="headerlink" title="gitignore"></a>gitignore</h1><ul>
+<li>默认情况下，git会监视项目里所有的文件。但是有时候，不是所有的文件都需要被git监视。</li>
+<li>使用 <em>gitignore</em> 来让git忽略它们</li>
+<li>在项目目录里新建一个 <code>.gitignore</code> 文件，把要忽略的文件名输入进去</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#注释</span><br><span class="line">node_modules</span><br><span class="line">yarn.lock</span><br><span class="line">*.log</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="git-ignore-配置"><a href="#git-ignore-配置" class="headerlink" title="git ignore 配置"></a>git ignore 配置</h2><ol>
+<li><p>使用<code>!&lt;filename&gt;</code>来使git不忽略某个文件。比如你需要git不忽略某个叫做<code>MyFile</code>的文件夹下的所有文件，在<code>.gitignore</code>里你可以这样写：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!MyFile/*</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li></li>
+</ol>
+<h1 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config &lt;配置名&gt; <span class="comment">#查看某个配置情况</span></span><br></pre></td></tr></table></figure>
+
+<p>更多配置：<a target="_blank" rel="noopener" href="https://www.atlassian.com/zh/git/tutorials/setting-up-a-repository/git-config">https://www.atlassian.com/zh/git/tutorials/setting-up-a-repository/git-config</a></p>
+<h1 id="GitHub-只添加已追踪的文件"><a href="#GitHub-只添加已追踪的文件" class="headerlink" title="GitHub 只添加已追踪的文件"></a>GitHub 只添加已追踪的文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add -u</span><br></pre></td></tr></table></figure>
+
+<p>ref: <a target="_blank" rel="noopener" href="https://www.google.com/search?q=how+to+add+tracked+files+only+in+git&oq=how+to+add+tracked+files+only+in&aqs=chrome.1.69i57j33i10i160l3.16226j0j9&sourceid=chrome&ie=UTF-8">https://www.google.com/search?q=how+to+add+tracked+files+only+in+git&amp;oq=how+to+add+tracked+files+only+in&amp;aqs=chrome.1.69i57j33i10i160l3.16226j0j9&amp;sourceid=chrome&amp;ie=UTF-8</a></p>
+<p>使用前：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Administrator@USER-20160428EL MINGW64 /f/awsl/Java/cs61b (master)</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of <span class="string">&#x27;origin/master&#x27;</span> by 2 commits.</span><br><span class="line">  (use <span class="string">&quot;git push&quot;</span> to publish your <span class="built_in">local</span> commits)</span><br><span class="line"></span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">&quot;git restore &lt;file&gt;...&quot;</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line">        modified:   lab2/DebugPractice/DebugExercise1.java</span><br><span class="line">        modified:   lab2/DebugPractice/DebugExercise2.java</span><br><span class="line">        modified:   lab2/Intlist/IntList.java</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line">        lab2/.idea/</span><br><span class="line">        lab2setup/.idea/</span><br><span class="line">        lab2setup/out/</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">&quot;git add&quot;</span> and/or <span class="string">&quot;git commit -a&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Administrator@USER-20160428EL MINGW64 /f/awsl/Java/cs61b (master)</span><br><span class="line">$ git add -u</span><br></pre></td></tr></table></figure>
+
+<p>使用后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Administrator@USER-20160428EL MINGW64 /f/awsl/Java/cs61b (master)</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of <span class="string">&#x27;origin/master&#x27;</span> by 2 commits.</span><br><span class="line">  (use <span class="string">&quot;git push&quot;</span> to publish your <span class="built_in">local</span> commits)</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git restore --staged &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">        modified:   lab2/DebugPractice/DebugExercise1.java</span><br><span class="line">        modified:   lab2/DebugPractice/DebugExercise2.java</span><br><span class="line">        modified:   lab2/Intlist/IntList.java</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line">        lab2/.idea/</span><br><span class="line">        lab2setup/.idea/</span><br><span class="line">        lab2setup/out/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Github-ICU"><a href="#Github-ICU" class="headerlink" title="Github ICU"></a>Github ICU</h1><p>远程仓库和本地仓库出现较大混乱时，可以这样恢复到希望回到的之前的某个commit版本。</p>
+<p>首先，进入你的本地仓库，使用<code>git log</code>命令找到你希望退回的<strong>commit版本号</strong>，然后使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard &lt;commit&gt;</span><br></pre></td></tr></table></figure>
+
+<p>回到你希望的commit版本。但是，在使用之前，&#x3D;&#x3D;你最好将文件进行备份&#x3D;&#x3D;，以免reset到错误的版本后丢失数据。</p>
+<p>你也可以使用<code>git reflog</code>来查看之前的操作，并且可以通过<code>git reflog</code>里提供的commit版本号来再次使用<code>reset --hard</code>命令回溯到操作前所在的commit版本（可以作为reset错误后的后悔药！）</p>
+<p>然后，对远程仓库使用强行同步更新：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f </span><br></pre></td></tr></table></figure>
+
+<p>[^参考1]:  <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/42860234/how-to-undo-a-merge-in-github%EF%BC%8CStack">https://stackoverflow.com/questions/42860234/how-to-undo-a-merge-in-github，Stack</a> Overflow的相关回答。<br>[^参考2]:  <a target="_blank" rel="noopener" href="https://initialcommit.com/blog/git-reset%EF%BC%8C%E5%AF%B9reset%E7%9A%84%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3">https://initialcommit.com/blog/git-reset，对reset的详细讲解</a><br>[^参考3]:<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/495345/how-to-remove-selected-commit-log-entries-from-a-git-repository-while-keeping-th%EF%BC%8CStack">https://stackoverflow.com/questions/495345/how-to-remove-selected-commit-log-entries-from-a-git-repository-while-keeping-th，Stack</a> Overflow.<br>[^参考4]: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit%EF%BC%8CStack">https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit，Stack</a> Overflow上的一个比较详细的高赞回答，不过我没细看…<br>[^参考5]: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/29042783/how-can-i-delete-all-commits-before-a-given-date-in-git-history%EF%BC%8CStack">https://stackoverflow.com/questions/29042783/how-can-i-delete-all-commits-before-a-given-date-in-git-history，Stack</a> Overflow：how can I delete all commits before a given date in git history.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">Administrator@USER-20160428EL MINGW64 /f/awsl/Java/cs61b (master)</span><br><span class="line">$ git <span class="built_in">log</span></span><br><span class="line">commit cca2edf5fbf99d5295cca7c0c56c807f0e2194ab (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: cyber_octopus &lt;gsy@gsy123mailbox.com&gt;</span><br><span class="line">Date:   Sat Feb 11 17:00:26 2023 +0800</span><br><span class="line"></span><br><span class="line">    reset files</span><br><span class="line"></span><br><span class="line">commit ad9c8610ec1d326fa88c7a8088ae53b4fe6fff5c</span><br><span class="line">Author: cyber_octopus &lt;gsy@gsy123mailbox.com&gt;</span><br><span class="line">Date:   Fri Feb 10 11:06:37 2023 +0800</span><br><span class="line"></span><br><span class="line">    fix the bug of IntList.java*</span><br><span class="line"></span><br><span class="line">commit c0ae005a84005d9f528673b36ca4507386ac711c</span><br><span class="line">Author: cyber_octopus &lt;gsy@gsy123mailbox.com&gt;</span><br><span class="line">Date:   Thu Feb 9 23:02:06 2023 +0800</span><br><span class="line"></span><br><span class="line">    add IntList.java with a small bug <span class="built_in">which</span> would count one less size of the IntList and also modify my note a bit</span><br><span class="line"></span><br><span class="line">commit 3bae4aa49e997c62db531f53c6427ea510f90942</span><br><span class="line">Author: cyber_octopus &lt;gsy@gsy123mailbox.com&gt;</span><br><span class="line">Date:   Wed Feb 8 22:26:27 2023 +0800</span><br><span class="line"></span><br><span class="line">    add .gitignore, SumArg.java and modify my note</span><br><span class="line"></span><br><span class="line">commit 4f461e2ca33d4d7e878011305dd401d91209f13e</span><br><span class="line">Author: cyber_octopus &lt;gsy@gsy123mailbox.com&gt;</span><br><span class="line">Date:   Sat Feb 4 23:26:25 2023 +0800</span><br><span class="line"></span><br><span class="line">    create new README file and tweak my first week  java note</span><br><span class="line"></span><br><span class="line">commit 14f93eae87f460eebf10617cbb650d2ca0af8c57</span><br><span class="line">Author: cyber_octopus &lt;gsy@gsy123mailbox.com&gt;</span><br><span class="line">Date:   Sat Feb 4 23:20:55 2023 +0800</span><br><span class="line"></span><br><span class="line">    finish the first week task</span><br><span class="line"></span><br><span class="line">commit 5551fe36d65a915e35b7af01beb615cf596d9902</span><br><span class="line">Author: cyber_octopus &lt;gsy@gsy123mailbox.com&gt;</span><br><span class="line">Date:   Sat Feb 4 21:47:51 2023 +0800</span><br><span class="line"></span><br><span class="line">    commit first week<span class="string">&#x27;s stuff</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Administrator@USER-20160428EL MINGW64 /f/awsl/Java/cs61b (master)</span></span><br><span class="line"><span class="string">$ git reflog</span></span><br><span class="line"><span class="string">cca2edf (HEAD -&gt; master, origin/master, origin/HEAD) HEAD@&#123;0&#125;: commit: reset files</span></span><br><span class="line"><span class="string">ad9c861 HEAD@&#123;1&#125;: reset: moving to ad9c8610</span></span><br><span class="line"><span class="string">a09fb44 HEAD@&#123;2&#125;: checkout: moving from master to master</span></span><br><span class="line"><span class="string">a09fb44 HEAD@&#123;3&#125;: pull --allow-unrelated-histories: Merge made by the &#x27;</span>recursive<span class="string">&#x27; strategy.</span></span><br><span class="line"><span class="string">7ef79fc HEAD@&#123;4&#125;: rebase finished: returning to refs/heads/master</span></span><br><span class="line"><span class="string">7ef79fc HEAD@&#123;5&#125;: rebase: delete all skeleton files</span></span><br><span class="line"><span class="string">4f0a62f HEAD@&#123;6&#125;: rebase: delete all skeleton file and try to set up again</span></span><br><span class="line"><span class="string">0515c34 HEAD@&#123;7&#125;: rebase: lab1 ready to submit</span></span><br><span class="line"><span class="string">a3610f2 HEAD@&#123;8&#125;: rebase: add all files from official repo of cs61b</span></span><br><span class="line"><span class="string">ad9c861 HEAD@&#123;9&#125;: rebase: fix the bug of IntList.java*</span></span><br><span class="line"><span class="string">c0ae005 HEAD@&#123;10&#125;: rebase: add IntList.java with a small bug which would count one less size of the IntList and also modify my note a bit</span></span><br><span class="line"><span class="string">3bae4aa HEAD@&#123;11&#125;: rebase: add .gitignore, SumArg.java and modify my note</span></span><br><span class="line"><span class="string">4f461e2 HEAD@&#123;12&#125;: pull --rebase --allow-unrelated-histories skeleton master: create new README file and tweak my first week java note</span></span><br><span class="line"><span class="string">14f93ea HEAD@&#123;13&#125;: pull --rebase --allow-unrelated-histories skeleton master: finish the first week task</span></span><br><span class="line"><span class="string">5551fe3 HEAD@&#123;14&#125;: pull --rebase --allow-unrelated-histories skeleton master: commit first week&#x27;</span>s stuff</span><br><span class="line">fa6b0b8 (skeleton/master) HEAD@&#123;15&#125;: pull --rebase --allow-unrelated-histories skeleton master: checkout fa6b0b8a7f1d83bf1aa47b9182bce4cad238f14e</span><br><span class="line"></span><br><span class="line">Administrator@USER-20160428EL MINGW64 /f/awsl/Java/cs61b (master)</span><br><span class="line">$ git reset 7ef79fc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="GitHub大量删除和添加文档后批量暂存"><a href="#GitHub大量删除和添加文档后批量暂存" class="headerlink" title="GitHub大量删除和添加文档后批量暂存"></a>GitHub大量删除和添加文档后批量暂存</h1><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/haohaibo031113/article/details/70821321">https://blog.csdn.net/haohaibo031113/article/details/70821321</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add -A  <span class="comment"># GitHub大量删除和添加文档后批量暂存，也可以用 rm 命令来处理删除的文件</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="GitHub重命名远程仓库"><a href="#GitHub重命名远程仓库" class="headerlink" title="GitHub重命名远程仓库"></a>GitHub重命名远程仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main <span class="comment">#把当前master分支改名为main, 其中-M的意思是移动或者重命名当前分支</span></span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7051873701305778207">https://juejin.cn/post/7051873701305778207</a></p>
+<h1 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h1><ol>
+<li>在命令行模式下，在要打开的目录里输入：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
+
+<p>即可用vscode打开当前目录</p>
+<h1 id="深入研究"><a href="#深入研究" class="headerlink" title="深入研究"></a>深入研究</h1><p><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
+<h1 id="GitHub部署静态页面"><a href="#GitHub部署静态页面" class="headerlink" title="GitHub部署静态页面"></a>GitHub部署静态页面</h1><p>详见Hexo，Docusaurus等静态站点生成器的官网。</p>
+<h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><p>在<a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN%E4%B8%8A%E7%BB%83%E4%B9%A0git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%EF%BC%8C%E5%B0%86%E5%A4%8D%E4%B9%A0%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95%E5%9C%A8%E8%BF%99%E9%87%8C%E3%80%82">https://learngitbranching.js.org/?locale=zh_CN上练习git的基本操作命令，将复习的笔记记录在这里。</a></p>
+<h2 id="分支-1"><a href="#分支-1" class="headerlink" title="分支"></a>分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch &lt;new branch name&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Switch to the new branch:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branch name&gt;</span><br><span class="line"><span class="comment"># or you can use:</span></span><br><span class="line">git switch &lt;branch name&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Create new branch and switch to it immediately:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b &lt;new branch name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h2><ul>
+<li>To merge branches, say if there are two parallel branches <code>bugFix</code> and <code>main</code>, and we want to merge <code>bugFix</code> to <code>main</code>:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git switch main	<span class="comment"># switch to the target branch</span></span><br><span class="line">git merge bugFix <span class="comment"># merge another branch to the target branch</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h2><p>To make commit history look more linear, we can “rebase” one of two parallel branches to another:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git switch bugFix</span><br><span class="line">git rebase main</span><br><span class="line"><span class="comment"># now your &quot;bugFix&quot; branch is one node ahead of &quot;main&quot; branch</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="HEAD-Moving"><a href="#HEAD-Moving" class="headerlink" title="HEAD Moving"></a>HEAD Moving</h2><p>By default, HEAD always points to the latest commit history. It is like: <code>HEAD -&gt; main -&gt; &quot;Hashtag of last commit&quot;</code>.</p>
+<p>To move “HEAD” to point to a commit history at somewhere:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;Hashtag of the commit <span class="built_in">history</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>now the HEAD is pointing to the given hashtag: <code>HEAD -&gt; the given hashtag</code></p>
+<ul>
+<li>Relative branch movement:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch -f &lt;branch to move&gt; &lt;reference name&gt;~&lt;num&gt;</span><br><span class="line"><span class="comment"># for example:</span></span><br><span class="line">git branch -f main HEAD~		<span class="comment"># move main to the previous node of HEAD</span></span><br><span class="line">git branch -f bugFix &lt;Hashtag&gt;	<span class="comment"># move bugFix to the specified hashtag</span></span><br><span class="line">git branch -f main bugFix~2 	<span class="comment"># move main to the second previous node of bugFix</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Atn alternative way to move HEAD</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># All these three move HEAD according to the relative position of target</span></span><br><span class="line">git checkout main^</span><br><span class="line">git checkout &lt;hashtag&gt;^</span><br><span class="line">git checkout HEAD~</span><br></pre></td></tr></table></figure>
+
+<h2 id="Undo-changes"><a href="#Undo-changes" class="headerlink" title="Undo changes"></a>Undo changes</h2><ul>
+<li><p><code>git revert</code>: create a new commit which is identical to the given one.</p>
+<p><span style="font-weight:bold;color:red">Recommend when there’s something need to be undone in remote repo</span></p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert HEAD	<span class="comment"># create a new commit the same as the previous one to the current commit.</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>git reset</code>: move the commit backward(The change of undone commit is still alive but in the state of not added.) </p>
+<p><span style="font-weight:bold;color:red">Recommend to edit local commit history only!</span></p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~1	<span class="comment"># undo the latest commit</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/AirCloud">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
