@@ -137,7 +137,7 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2023-06-30 04:35:45</span></span>
+        <span class="attr">发布于：<span>2023-10-14 13:34:27</span></span>
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -309,7 +309,7 @@
 </li>
 <li>SECTION：用来分配到储存空间<ul>
 <li>段：<ul>
-<li>.cinit：存放用来对全局和静态变量初始化的函数</li>
+<li>.cinit：存放用来对全局 和静态变量初始化的函数</li>
 <li>.text：存放编译C语言时产生的汇编代码</li>
 <li>.econst：包含字符串常量、全局变量和静态变量的初始化和说明</li>
 <li>.ebss：使用大寄存器模式时为全局变量和静态变量所预留的空间</li>
@@ -342,7 +342,7 @@
 <li>GPxClear：只能写1</li>
 <li>GPxTOGGLE：只能写1</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 置位输出</span></span><br><span class="line">GpioDataReg.GPASET.bit.GPIOA0 = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 读取输入</span></span><br><span class="line"><span class="keyword">if</span>(GpioDataReg.GPASET.bit.GPIOA2 = <span class="number">0</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 置位输出</span></span><br><span class="line">GpioDataReg.GPASET.bit.GPIOA0 = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 读取输入</span></span><br><span class="line"><span class="keyword">if</span>(GpioDataReg.GPASET.bit.GPIOA2 == <span class="number">0</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="七、中断"><a href="#七、中断" class="headerlink" title="七、中断"></a>七、中断</h1><p>中断的类型：</p>
 <ul>
@@ -520,7 +520,7 @@
 <p>$T &#x3D; (T1PR + 1) * TCLK$</p>
 <p>对称模式：</p>
 <p>$T &#x3D; (2 * T1PR) *TCLK$</p>
-<h2 id="全比较单元"><a href="#全比较单元" class="headerlink" title="全比较单元"></a>全比较单元</h2><p>Eva、Evb各有3个全比较单元（加起来总共6个），每个比较单元都可以输出2路互补的PWM波，所以Eva或者Evb可以都有能力驱动一个三相全桥电路。（当然你也可以设置输出的两路PWM相同）</p>
+<h2 id="全比较单元"><a href="#全比较单元" class="headerlink" title="全比较单元"></a>全比较单元</h2><p>Eva、Evb各有3个全比较单元（加起来总共6个），每个比较单元都可以输出2路互补的PWM波，所以Eva或者Evb可以都有能力驱动一个三相全桥电路。（当然你也可以设置输出的两路PWM完全相同）</p>
 <h3 id="寄存器-1"><a href="#寄存器-1" class="headerlink" title="寄存器"></a>寄存器</h3><p>按Eva和Evb来分：</p>
 <ul>
 <li>16位比较寄存器CMPR1<del>3， CMPR4</del>6，共6个（都有阴影寄存器）</li>
@@ -607,7 +607,7 @@
 
 
 
-<h1 id="十、SPI"><a href="#十、SPI" class="headerlink" title="十、SPI"></a>十、SPI</h1><p>串行外设接口，是一种<strong>低速同步串行通信接口</strong>，而SCI是同步通信。</p>
+<h1 id="十、SPI"><a href="#十、SPI" class="headerlink" title="十、SPI"></a>十、SPI</h1><p>串行外设接口，是一种<strong>低速同步串行通信接口</strong>，而SCI是异步通信。</p>
 <ul>
 <li>异步通信和同步通信的区别在于<strong>收发双方是否使用同一个时钟信号来控制数据收、发移位操作</strong>。</li>
 </ul>

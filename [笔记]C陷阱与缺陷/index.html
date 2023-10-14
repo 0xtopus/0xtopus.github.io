@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta property="og:type" content="website">
+    <meta name="description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        《C陷阱与缺陷》笔记 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> h4x0rdecimal 0xtopus </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>0xtopus</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">声明变量与类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">类型转换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E9%99%B7%E9%98%B1"><span class="toc-text">语法陷阱</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84"><span class="toc-text">指针和数组</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> h4x0rdecimal 0xtopus </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        《C陷阱与缺陷》笔记
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-10-14 13:34:27</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="声明变量与类型转换"><a href="#声明变量与类型转换" class="headerlink" title="声明变量与类型转换"></a>声明变量与类型转换</h1><h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>假如现在要声明一个 <code>float</code> 变量：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> f;</span><br></pre></td></tr></table></figure>
+
+<p>那么当我们进行类型转换时，只要把_；_ 和 <em>变量名</em> 去掉，并在类型外面加上_一对括号_ 即可：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="type">float</span>) a;</span><br></pre></td></tr></table></figure>
+
+<p>利用类型转换的原则，我们可以发现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> (*pf)();</span><br></pre></td></tr></table></figure>
+
+<p>声明了一个函数指针，由此，要把某个变量转换为函数指针：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="type">float</span> (*)())</span><br></pre></td></tr></table></figure>
+
+<p>现在你可以理解下列语句的意思了：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(* (<span class="type">void</span> (*)()) <span class="number">0</span>))();</span><br></pre></td></tr></table></figure>
+
+<p>我们也可以使用 <code>typedef</code> 来让这个语句看起来更漂亮一些：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span> <span class="params">(*funcptr)</span><span class="params">()</span>; </span><br><span class="line"><span class="comment">// 更准确的意思可以表达为： typedef void (*)() funcptr;</span></span><br><span class="line"><span class="comment">// 但这不是正确的语法</span></span><br><span class="line"></span><br><span class="line">(*(funcptr) <span class="number">0</span>))();</span><br></pre></td></tr></table></figure>
+
+<p>但是，为什么不能使用：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span> <span class="params">(*)</span><span class="params">()</span> funcptr;</span><br></pre></td></tr></table></figure>
+
+<p>呢？</p>
+<p>我猜原因是这里C语言应用的逻辑是 <em>声明</em> 而不是 <em>类型转换</em> . </p>
+<p>（尽管 <code>typedef void (*)() funcptr;</code> 这种写法更符合逻辑，也更易懂）</p>
+<p>对于一个函数，可以利用类似的思想来理解：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> <span class="title function_">fun</span><span class="params">(...)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>表示声明 <code>fun(...)</code> 是一个 <code>float</code> 类型的变量，即它的返回值是 <code>float</code> 类型的变量。</p>
+<p>而之所以在上面 <code>typedef</code> 的例子中要这么定义，同样也是和声明有关：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面是一个声明返回值为 void 的函数指针的声明方法</span></span><br><span class="line"><span class="type">void</span> (*fun)(<span class="type">int</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把 funcptr 作为 void (*)() 的别名时，需要使用声明的语法</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span> <span class="params">(*funcptr)</span><span class="params">()</span>;</span><br><span class="line"><span class="comment">// 同理：</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> uint32;</span><br></pre></td></tr></table></figure>
+
+<p>同样的，声明一个返回函数指针的函数时（以<code>signal()</code> 函数为例）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面是一个声明返回值为 void 的函数指针的声明方法</span></span><br><span class="line"><span class="type">void</span> (*fun)(<span class="type">int</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 由声明函数指针的方法知道我们要把signal这个函数的返回值声明为一个“返回值为 void 的函数指针”</span></span><br><span class="line"><span class="comment">// 的方法：</span></span><br><span class="line"><span class="comment">// 去掉变量名: void (*)(int)</span></span><br><span class="line"><span class="comment">// signal的参数为一个int和一个函数指针，将 signal(int, void (*)(int)) 放进去</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用规则，一个返回值为函数指针的函数应该声明为：</span></span><br><span class="line"><span class="type">void</span> (*(signal(<span class="type">int</span>, <span class="type">void</span> (*)<span class="type">int</span>)))(<span class="type">int</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="语法陷阱"><a href="#语法陷阱" class="headerlink" title="语法陷阱"></a>语法陷阱</h1><h2 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h2><ul>
+<li><p>C语言只有<strong>一维数组</strong>，且数组的大小在编译时必须为一个恒常数。而数组的成员可以为任意类型，包括数组，这使得构建多维数组成为可能。</p>
+</li>
+<li><p>对数组只有两种操作：确定它的大小和获取第0个元素的指针。<strong>所有</strong>的数组操作都是通过指针完成的。所有的下标操作都相当于指针操作。</p>
+</li>
+<li><p>除了作为关键字sizeof的操作数时，数组的变量名代表整个数组（因此返回的参数为数组的实际大小），其他时候都被转换为代表数组的首元素指针。ANSI C不允许 <code>p = &amp;a</code> 这种写法，但在某些情况下 <code>&amp;a</code> 代表“整个数组的地址”</p>
+</li>
+<li><p>字符串：</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假定我们有字符串s和t</span></span><br><span class="line"><span class="type">char</span> *r;</span><br><span class="line"><span class="built_in">strcpy</span>(r, s);</span><br><span class="line"><span class="built_in">strcat</span>(r, t);</span><br></pre></td></tr></table></figure>
+
+<p>上面这种写法是错误的，因为不知道<code>r</code>指向何处，我们需要使用<code>malloc</code>或声明为<code>char r[100]</code>给<code>r</code>分配空间。</p>
+<ul>
+<li>数组作为参数传递时，实际上是传递了一个首元素的指针。</li>
+<li>逗号运算符：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在函数参数中，逗号不是运算符</span></span><br><span class="line">fun(a, b);</span><br><span class="line"><span class="comment">// 而当逗号作运算符的时候，逗号左边的值先运算，随后被丢弃</span></span><br><span class="line">g((a,b));</span><br></pre></td></tr></table></figure>
+
+
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/AirCloud">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
