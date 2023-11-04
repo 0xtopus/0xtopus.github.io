@@ -1,3 +1,8 @@
+---
+title: Git使用笔记
+date: 2023-6-30 12:35:08
+tags:
+---
 # git配置
 
 `git config --global user.name "..."`
