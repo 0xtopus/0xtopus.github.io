@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta property="og:type" content="website">
+    <meta name="description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        DOM note - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> h4x0rdecimal 0xtopus </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>0xtopus</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DOM"><span class="toc-text">DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-text">全局变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#document"><span class="toc-text">document</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8html%E5%85%83%E7%B4%A0"><span class="toc-text">引用html元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9HTML%E5%85%83%E7%B4%A0"><span class="toc-text">修改HTML元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">修改元素的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-text">修改元素的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E7%9A%84%E7%B1%BB%E5%90%8D%E5%92%8CCSS"><span class="toc-text">修改元素的类名和CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9DOM-Tree"><span class="toc-text">修改DOM Tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accessibility"><span class="toc-text">Accessibility</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-text">事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">事件的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B"><span class="toc-text">事件驱动编程</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> h4x0rdecimal 0xtopus </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        DOM note
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-11-22 11:32:24</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><p>参考：<a target="_blank" rel="noopener" href="https://info340.github.io/dom.html">Document Object Module(DOM)</a></p>
+<p>DOM是Document of module的缩写。当浏览器渲染 <code>html</code> 时，我们往往把其看成树状的结构，没有父节点的html元素被成为根元素，有父元素也有子元素的被称为node，没有子元素的被成为leaf。这种模型就叫做DOM。</p>
+<p>JavaScript则可以用来操纵和修改DOM里的元素，DOM提供了一些API使我们可以很方便的对页面中的 html 元素进行操纵。</p>
+<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><p>JavaScript的全局变量几乎都是 <code>Object</code> 类型，它们的值是一组方法。比如：<code>Math</code> ， <code>console</code> ，<code>window</code> 等等：</p>
+<p>比如，全局变量 <code>window</code> 代表浏览器自身：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* example properties */</span></span><br><span class="line"><span class="keyword">let</span> width = <span class="variable language_">window</span>.<span class="property">innerWidth</span>;   <span class="comment">//viewport width</span></span><br><span class="line"><span class="keyword">let</span> height = <span class="variable language_">window</span>.<span class="property">innerHeight</span>; <span class="comment">//viewport height</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>; <span class="comment">//url for this page</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* example functions */</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">alert</span>(<span class="string">&quot;Boo!&quot;</span>); <span class="comment">//show a popup alert. Do not use this.</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">scrollTo</span>(<span class="number">0</span>, <span class="number">1000</span>); <span class="comment">//scroll to a position</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="built_in">setTimeout</span>(callback, <span class="number">1000</span>); <span class="comment">//execute callback after an delay</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="built_in">setInterval</span>(callback, <span class="number">1000</span>); <span class="comment">//execute callback repeatedly after interval</span></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>While these examples are included for completeness, most <code>window</code> functions are rarely used and should be avoided. Popups with the <code>window.alert()</code> function are inelegant, interrupt the user’s actions, and produce a bad user experience—you should instead use in-window alerting options instead (such as showing a <code>&lt;p class=&quot;alert&quot;&gt;</code>). Browser control functions such as <code>scrollTo()</code> are non-standard and can vary drastically across systems and platforms. Proceed with caution when using <code>window</code> functions!</p>
+</blockquote>
+<h3 id="document"><a href="#document" class="headerlink" title="document"></a>document</h3><p><code>document</code> 是DOM本身的全局变量，即当前浏览器页面中渲染的全部 html ，通过 <code>document</code> 对象来操纵当前页面的元素。</p>
+<h2 id="引用html元素"><a href="#引用html元素" class="headerlink" title="引用html元素"></a>引用html元素</h2><p>为了操纵html文件，你需要先引用它们。</p>
+<p><code>document</code> 对象里有许多“选择函数” 使你可以轻松引用到你想要的元素：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//element with id=&quot;foo&quot;</span></span><br><span class="line"><span class="keyword">let</span> fooElem = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//elements with class=&quot;row&quot;</span></span><br><span class="line"><span class="keyword">let</span> rowElems = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;row&#x27;</span>); <span class="comment">//note the plural!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&lt;li&gt; elements</span></span><br><span class="line"><span class="keyword">let</span> liElems = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;li&#x27;</span>); <span class="comment">//note the plural!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*easiest to select by reusing CSS selectors! */</span></span><br><span class="line"><span class="keyword">let</span> cssSelector = <span class="string">&#x27;header p, .title &gt; p&#x27;</span>;  <span class="comment">//a string of a CSS selector</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//selects FIRST element that matches css selector</span></span><br><span class="line"><span class="keyword">let</span> elem = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(cssSelector);</span><br><span class="line"></span><br><span class="line"><span class="comment">//matches ALL elements that match css selector</span></span><br><span class="line"><span class="keyword">let</span> elems = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(cssSelector);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>querySelector</code> 是最常用的选择函数，你可以在括号里填 <code>id</code> ，<code>class</code> 或 <code>元素选择器</code> 来选出需要的元素。</li>
+<li>注意：所有返回多个元素的选择函数返回的是一个  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList"><code>NodeList</code></a>，尽管它很像数组，但是 <code>forEach()</code> 和 <code>map()</code> 等方法对其无效！你必须使用 <code>for()</code> 循环来遍历它的元素！</li>
+<li>一般而言，你一次只会对一个元素进行修改，所以不需要太担心上一点。</li>
+</ul>
+<h2 id="修改HTML元素"><a href="#修改HTML元素" class="headerlink" title="修改HTML元素"></a>修改HTML元素</h2><p>一旦你获得了html元素的引用，你就可以使用对象里对应的方法来对其进行修改。注意，修改后的元素不会影响到html源文件，刷新页面后，你的修改就会被覆盖（除非你同时也加载了对应的 <code>script</code> 文件）</p>
+<h3 id="修改元素的内容"><a href="#修改元素的内容" class="headerlink" title="修改元素的内容"></a>修改元素的内容</h3><p>使用 <code>elem.textContent</code> 来修改字面内容，这是一种非常安全的做法，即使有人试图引入 <code>&lt;</code> 和 <code>&gt;</code> ，它们也会被翻译为<a target="_blank" rel="noopener" href="https://www.w3schools.com/html/html_entities.asp">HTML Entities</a>而不是标签。</p>
+<p>使用<code>elem.innerHTML</code> 则可以插入带有HTML标签的文字，注意，除非你能100%确定输入的内容是可靠的，否则请小心使用这个属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//get a reference to the FIRST &lt;p&gt; element</span></span><br><span class="line"><span class="keyword">let</span> elem = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(elem); <span class="comment">//to demonstrate</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> text = elem.<span class="property">textContent</span>; <span class="comment">//the text content of the elem</span></span><br><span class="line">elem.<span class="property">textContent</span> = <span class="string">&quot;This is different content!&quot;</span>; <span class="comment">//change the content</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> html = elem.<span class="property">innerHTML</span>; <span class="comment">//content including HTML</span></span><br><span class="line">elem.<span class="property">innerHTML</span> = <span class="string">&quot;This is &lt;em&gt;different&lt;/em&gt; content!&quot;</span>; <span class="comment">//interpreted as HTML</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改元素的属性"><a href="#修改元素的属性" class="headerlink" title="修改元素的属性"></a>修改元素的属性</h3><p>你也可以改变某个元素的属性，在HTML Specification里定义的每个属性（attribute）都作为元素的property暴露出来。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//get a reference to the `#picture` element</span></span><br><span class="line"><span class="keyword">let</span> imgElem = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#picture&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//access the attribute</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( imgElem.<span class="property">src</span> ); <span class="comment">//logs the source of the image</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//modify the attribute</span></span><br><span class="line">imgElem.<span class="property">src</span> = <span class="string">&#x27;my-picture.png&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>但是，你不可以使用<code>elem.class</code> 和 <code>elem.style</code>来访问某个属性的类名和CSS。</p>
+<p>使用 <code>getAttribute()</code> 方法和 <code>setAttribute()</code> 方法可以直接对某个属性进行修改，注意给出对应的参数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imgElem = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#picture&#x27;</span>);</span><br><span class="line">imgElement.<span class="title function_">setAttribute</span>(<span class="string">&#x27;src&#x27;</span>, <span class="string">&#x27;my-other-picture.png&#x27;</span>); <span class="comment">//set the src</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( imgElem.<span class="title function_">getAttribute</span>(<span class="string">&#x27;src&#x27;</span>) ); <span class="comment">//=&gt; &#x27;my-other-picture.png&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//the `hasAttribute()` method returns a boolean.</span></span><br><span class="line"><span class="keyword">let</span> isThick = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;svg rect&#x27;</span>)</span><br><span class="line">                      .<span class="title function_">hasAttribute</span>(<span class="string">&#x27;stroke-width&#x27;</span>); <span class="comment">//chained anonymous variables</span></span><br></pre></td></tr></table></figure>
+
+<p>你可以用上述方法来修改未被HTML Spec定义的属性，比如说<code>data-</code> attribute。但它们对一些属性也不起作用，比如： <code>value</code> attribute of an <code>&lt;input&gt;</code> element。</p>
+<h3 id="修改元素的类名和CSS"><a href="#修改元素的类名和CSS" class="headerlink" title="修改元素的类名和CSS"></a>修改元素的类名和CSS</h3><p>使用 <code>classList</code> 属性来修改类名。除了IE以外，可以使用 <code>add()</code> 和 <code>remove()</code> 方法来增加和减少类名：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//access list of classes of the element &#x27;elem&#x27;</span></span><br><span class="line"><span class="keyword">let</span> classList = elem.<span class="property">classList</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//add a class</span></span><br><span class="line">elem.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;small&#x27;</span>); <span class="comment">//add a single class</span></span><br><span class="line">elem.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;alert&#x27;</span>,<span class="string">&#x27;alert-warning&#x27;</span>); <span class="comment">//add multiples classes (not on IE)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//remove a class</span></span><br><span class="line">elem.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;small&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//&quot;toggle&quot; (add if missing, remove if present)</span></span><br><span class="line">elem.<span class="property">classList</span>.<span class="title function_">toggle</span>(<span class="string">&#x27;small&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>While IE 10+ does support these methods, it doesn’t support <em>multiple arguments</em> for them (so you can’t add multiple classes in a single method call). If you need to support older browsers (including any version of IE), you can instead modify the <code>.className</code> property as if it were a String:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//fallback for IE (all)</span></span><br><span class="line"><span class="keyword">var</span> classes = elem.<span class="property">className</span>;</span><br><span class="line">classes += <span class="string">&#x27; &#x27;</span>+ <span class="string">&#x27;sweet sour&#x27;</span>; <span class="comment">//modify the string (append!)</span></span><br><span class="line">elem.<span class="property">className</span> = classes;     <span class="comment">//reassign</span></span><br></pre></td></tr></table></figure>
+
+<p>The <code>classList</code> methods work perfectly on Microsoft Edge.</p>
+</li>
+</ul>
+<p>你也可以直接修改 <code>style</code> 属性，但一般不推荐这么改：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> h1 = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">h1.<span class="property">style</span>.<span class="property">color</span> = <span class="string">&#x27;green&#x27;</span>;</span><br><span class="line">h1.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;black&#x27;</span>; <span class="comment">//not `.background-color`</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改DOM-Tree"><a href="#修改DOM-Tree" class="headerlink" title="修改DOM Tree"></a>修改DOM Tree</h3><p>你也可以操纵DOM Tree，即增加或删减、修改页面里的元素。</p>
+<p>JavaScript的DOM元素可以使用特殊的变量来引用它们的子元素和父元素，这些变量具有只读属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">&quot;first-section&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>First paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Second paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">&quot;second-section&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//get reference to the first section</span></span><br><span class="line"><span class="keyword">let</span> firstSection = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#first-section&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//get reference to the &quot;parent&quot; node</span></span><br><span class="line"><span class="keyword">let</span> main = firstSection.<span class="property">parentElement</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(main); <span class="comment">//&lt;main&gt;...&lt;/main&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//get reference to the child elements (2 paragraphs)</span></span><br><span class="line"><span class="keyword">let</span> paragraphs = firstSection.<span class="property">children</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(paragraphs.<span class="property">length</span>); <span class="comment">//2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(paragraphs[<span class="number">0</span>]); <span class="comment">//&lt;p&gt;First paragraph&lt;/p&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//get reference to the the next sibling</span></span><br><span class="line"><span class="keyword">let</span> sectionSection = firstSection.<span class="property">nextElementSibling</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(secondSection); <span class="comment">//&lt;section id=&quot;second-section&quot;&gt;&lt;/section&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Note that these properties only deal with <strong>HTML elements</strong>—text content nodes are ignored. You can instead use equivalent properties <code>parentNode</code> and <code>childNodes</code> to also consider text content nodes.</li>
+</ul>
+<p>即除了元素节点之外，DOM里面还可以有：“A node can be an element node, a text node, a comment  node, or a document node.”</p>
+<p>以及：SVG content doesn’t support <code>parentElement</code>, but does support <code>parentNode</code>.</p>
+<p>你可以使用 <code>Document.createElement()</code> 来创建新的元素，然后使用 <code>appendChild()</code> 等方法来将新创建的元素插入DOM：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//create a new &lt;p&gt; (not yet in the tree)</span></span><br><span class="line"><span class="keyword">let</span> newP = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line">newP.<span class="property">textContent</span> = <span class="string">&quot;I&#x27;m new!&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//create Node of textContent only (not an HTML element, just text)</span></span><br><span class="line"><span class="keyword">let</span> newText = <span class="variable language_">document</span>.<span class="title function_">createTextNode</span>(<span class="string">&quot;I&#x27;m blank&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> main = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;main&#x27;</span>);</span><br><span class="line">main.<span class="title function_">appendChild</span>(newP); <span class="comment">//add element INSIDE (at end)</span></span><br><span class="line">main.<span class="title function_">appendChild</span>(newText); <span class="comment">//add the text inside, AFTER the &lt;p&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//add anonymous new node BEFORE element. Parameters are: (new, old)</span></span><br><span class="line">main.<span class="title function_">insertBefore</span>(<span class="variable language_">document</span>.<span class="title function_">createTextNode</span>(<span class="string">&quot;First!&quot;</span>), newP);</span><br><span class="line"></span><br><span class="line"><span class="comment">//replace node. Parameters are: (new, old)</span></span><br><span class="line">main.<span class="title function_">replaceChild</span>(<span class="variable language_">document</span>.<span class="title function_">createTextNode</span>(<span class="string">&#x27;boo&#x27;</span>), newText);</span><br><span class="line"></span><br><span class="line"><span class="comment">//remove node</span></span><br><span class="line">main.<span class="title function_">removeChild</span>(main.<span class="title function_">querySelector</span>(<span class="string">&#x27;p&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>常见的做法是使用 <code>document.createElement()</code> 先创建一个块元素，然后设置这个块元素的 <code>innerHTML</code>，在里面添加文字内容和行内元素，最后使用 <code>appendChild()</code> 把这个元素放到DOM的某个位置中去。</p>
+<h3 id="Accessibility"><a href="#Accessibility" class="headerlink" title="Accessibility"></a>Accessibility</h3><p>如果在阅读器已经阅读后对DOM的内容进行了修改，那么 Accessibility 就会受到影响。将将来可能被修改的元素放到<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">ARIA Live Region</a>，阅读器会根据修改进行调整。</p>
+<p>You make an element into a live region by giving it the <code>aria-live</code> attribute:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">aria-live</span>=<span class="string">&quot;polite&quot;</span>&gt;</span></span><br><span class="line">  This content can change!</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>aria-live</code> 的属性 <code>&quot;polite&quot;</code> 表明只有当用户暂停当前正在阅读的内容的时候才把修改的内容读出。</p>
+<blockquote>
+<p>A <code>&quot;polite&quot;</code> alert doesn’t interrupt the currently being read text or description, but instead will be injected when there is a break (if the current reading goes on for too long, then the new content will not be spoken).</p>
+</blockquote>
+<blockquote>
+<p>The other option is <code>&quot;assertive&quot;</code>, which indicates that the new content should be spoken as soon as it changes, possibly interrupting other content. This should only be used for important information (like alerts, warnings, or errors), as it can interrupt the user’s flow in ways that are very disorienting. In short: <em>always be polite!</em></p>
+</blockquote>
+<p>另外你也可以使用 <code>&quot;assertive&quot;</code> 属性，这表示一旦发生改变，改变的内容会被立刻读出。</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>当用户和电脑互动的时候，操作系统会把这一系列互动当做 “事件（Event）”，比如按键被按下，鼠标点击等等。</p>
+<p>为了使我们的JavaScript能够对事件进行响应，我们需要注册“Event Listener” 来监听事件。在DOM API中，我们使用函数 <code>addEventListener()</code> 来给某个元素添加事件监听。</p>
+<p>该函数有两个参数：</p>
+<ul>
+<li>预先定义的事件名称</li>
+<li>事件发生时调用的回调函数，该函数有一个类型是 Object 的参数 <code>event</code> ，里边包含了事件发生的一些信息</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a (named) callback function</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">onClickCallback</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;You clicked me!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//get a reference to the element we want to &quot;listen&quot; to</span></span><br><span class="line"><span class="keyword">let</span> button = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//register a listener for &#x27;click&#x27; events</span></span><br><span class="line">button.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, onClickCallback);</span><br></pre></td></tr></table></figure>
+
+<p>一般我们使用匿名函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> button = <span class="variable language_">document</span>.<span class="property">querySelect</span>.<span class="title function_">select</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">button.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;You clicked me!&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以给同一个元素绑定多个不同的事件监听器。</p>
+<p>回调函数的参数 <code>event</code> 含有事件发生时的信息，比如事件发生时鼠标的位置，哪个元素触发了事件等等：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">elem.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">   <span class="comment">//get who was clicked;</span></span><br><span class="line">   <span class="keyword">let</span> clickedElem = event.<span class="property">target</span>; <span class="comment">//target property of the event</span></span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(clickedElem);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果你想要覆盖掉某事件发生时系统默认的行为，比如取消在按下按钮时默认提交表格：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">submitBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line"></span><br><span class="line">  event.<span class="title function_">preventDefault</span>(); <span class="comment">//don&#x27;t do normal behavior</span></span><br><span class="line">  event.<span class="title function_">stopPropagation</span>(); <span class="comment">//don&#x27;t pass the event to parents</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//..do custom behavior here</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//don&#x27;t do normal behavior OR propagate! (for IE)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件的类型"><a href="#事件的类型" class="headerlink" title="事件的类型"></a>事件的类型</h3><p>There are <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Events">numerous different events</a> that you can listen for, including:</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent">Mouse Events</a> 比如 **<code>&#39;click&#39;</code>**。 </p>
+<ul>
+<li><code>event.offsetX</code> 和 <code>event.offsetY</code> will provide (x,y) coordinates for the clicks location <em>relative to the target element</em>; </li>
+<li><code>clientX/Y</code> for coordinates relative to the browser window</li>
+<li><code>pageX/Y</code> for coordinates relative to the document (regardless of scrolling). </li>
+<li>See <a target="_blank" rel="noopener" href="http://www.quirksmode.org/mobile/viewports.html">this post</a> for details, and <a target="_blank" rel="noopener" href="http://www.quirksmode.org/m/tests/mouseprops.html">this page</a> for an example.</li>
+</ul>
+<p>其他的鼠标事件还包括： <code>&#39;dblclick&#39;</code> (double-click), <code>&#39;mousedown&#39;</code> (mouse button is pressed down, may be held), <code>&#39;hover&#39;</code> (mouse hover), <code>&#39;mouseenter&#39;</code> (mouse moves over element), <code>&#39;mousemove&#39;</code> (mouse moves over element), and <code>&#39;mouseleave&#39;</code> (mouse moves off element).</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent">Keyboard Events</a> 比如 **<code>&#39;keydown&#39;</code>**。</p>
+<ul>
+<li><code>event.key</code> 属性用来判断按下的是哪个键, giving a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">predefined key value</a> you can check:</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">elem.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keydown&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(event.<span class="property">key</span> === <span class="string">&#x27;ArrowUp&#x27;</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Going up!&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>The <code>event</code> object also has properties to check if any “modifier keys” such as shift, control, or meta (Windows&#x2F;command) are held when the event occurs.</p>
+<p>Note that you almost always want to respond to the <code>&#39;keydown&#39;</code> and <code>&#39;keyup&#39;</code> events; the <code>&#39;keypressed&#39;</code> event is sent later and only applies to non-modifier keys.</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Window#Event_handlers">Window Events</a> 是 <code>window</code> 全局变量的事件。 <ul>
+<li>比如， <code>&#39;resize&#39;</code> 事件可以用来确定浏览器窗口是否发生了大小改变 (e.g., if you want to make the content responsive as well as the CSS):</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;resize&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>(See <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Events/resize">the documentation</a> for advise on using this callback)</p>
+<ul>
+<li><p><code>window</code> 全局变量还定义了一个事件回调函数 <code>window.onload</code> ，允许你在页面加载完毕后再运行此回调函数内的代码(e.g., for scripts specified in the <code>&lt;head&gt;</code>)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//...do stuff once page is ready (e.g., run the rest of your code)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>注意：</strong> 永远不要在HTML里使用 <code>onclick</code> 属性！为了与解耦的原则保持一致，永远应该在JavaScript里添加Event Listener！</p>
+<h3 id="事件驱动编程"><a href="#事件驱动编程" class="headerlink" title="事件驱动编程"></a>事件驱动编程</h3><p>在事件监听器中定义的回调函数里的变量的作用域只在函数内有效，这就意味着有时我们需要使用全局变量来记录事件的一些属性，比如事件发生的次数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> clickCount = <span class="number">0</span>;  <span class="comment">//keep track of the &quot;state&quot; (global)</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>).<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(clickCount &gt; <span class="number">10</span>) &#123;  <span class="comment">//decide what to do</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;I think you&#x27;ve had enough&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        clickCount++;  <span class="comment">//change state (+1)</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;You clicked me!&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>These “state” variables can be global, or can simply be declared within a containing function as a closure. State variables are often objects, with individual values stored as the properties. This provides a name-spacing feature, and helps to keep the code from being cluttered with many variables.</p>
+</blockquote>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/AirCloud">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
