@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta property="og:type" content="website">
+    <meta name="description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        ES6 feature Note - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> h4x0rdecimal 0xtopus </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>0xtopus</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6-%E7%89%B9%E6%80%A7"><span class="toc-text">ES6+ 特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-Class%EF%BC%9F"><span class="toc-text">Why Class？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E4%B8%AD%E7%9A%84%E7%B1%BB"><span class="toc-text">Java中的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6%E7%9A%84%E7%B1%BB"><span class="toc-text">ES6的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-text">继承</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">this关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">回调函数的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Destructuring-and-Spreading"><span class="toc-text">Destructuring and Spreading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spreading"><span class="toc-text">Spreading</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#modules-%E8%AF%AD%E6%B3%95"><span class="toc-text">modules 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Import"><span class="toc-text">Import</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Export"><span class="toc-text">Export</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%89%B9%E6%80%A7"><span class="toc-text">其他特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Template-Strings"><span class="toc-text">Template Strings</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> h4x0rdecimal 0xtopus </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        ES6 feature Note
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-11-27 07:41:33</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="ES6-特性"><a href="#ES6-特性" class="headerlink" title="ES6+ 特性"></a>ES6+ 特性</h1><p>2015年，ES6标准发布，增加了许多新特性。这里将对这些特性进行讨论，特别是那些被用于React框架里的特性。</p>
+<blockquote>
+<p>注意，<a target="_blank" rel="noopener" href="http://kangax.github.io/compat-table/es6/">大部分浏览器</a>现在都支持ES6特性，但IE依然不支持，如果你需要兼容IE，你可以使用 <a target="_blank" rel="noopener" href="https://babeljs.io/">Babel</a> compiler来将代码“重新编译”为ES5代码。你可以在React框架里用 build tools自动完成重新编译。</p>
+</blockquote>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>ES6引入了新的 <code>class</code> 关键字，使你可以像Java那样面向对象编程。</p>
+<ul>
+<li>注意，在JavaScript里，所有的类的实例都是 <code>Object</code> 类型的变量，尽管它表现得很像Java中的类，但还是有所不同。</li>
+</ul>
+<h3 id="Why-Class？"><a href="#Why-Class？" class="headerlink" title="Why Class？"></a>Why Class？</h3><p>引入类的好处是：我们可以对一些数据（变量）和行为（方法）提供封装，以便在更高层面的抽象上来讨论它们。</p>
+<p>在JavaScript中，我们可以通过定义 <code>Object</code> 类型的变量来定义一个实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">   <span class="attr">name</span>: <span class="string">&#x27;Ada&#x27;</span>,</span><br><span class="line">   <span class="attr">age</span>: <span class="number">21</span>,</span><br><span class="line">   <span class="attr">costume</span>: <span class="string">&#x27;Cheshire Cat&#x27;</span></span><br><span class="line">   <span class="attr">trickOrTreat</span>: <span class="keyword">function</span>(<span class="params">newCandy</span>)&#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">candy</span>.<span class="title function_">push</span>(newCandy);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//tell me about this person!</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span> + <span class="string">&quot; is a &quot;</span> + person.<span class="property">costume</span>);</span><br></pre></td></tr></table></figure>
+
+<p>但类给我们提供了一个批量创建实例的模版，我们通过实例化类来创建同一类的不同对象。</p>
+<h3 id="Java中的类"><a href="#Java中的类" class="headerlink" title="Java中的类"></a>Java中的类</h3><p>复习一下，在Java中定义类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//class declaration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//attributes (private)</span></span><br><span class="line">    <span class="keyword">private</span> String firstName;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//a Constructor method</span></span><br><span class="line">    <span class="comment">//this is called when the class is instantiated (with `new`)</span></span><br><span class="line">    <span class="comment">//and has the job of initializing the attributes</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(String newName, <span class="type">int</span> newAge)</span>&#123;</span><br><span class="line">        <span class="comment">//assign parameters to the attributes</span></span><br><span class="line">        <span class="built_in">this</span>.firstName = newName;</span><br><span class="line">        <span class="built_in">this</span>.age = newAge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//return this Person&#x27;s name</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.firstName; <span class="comment">//return own attribute</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//grow a year</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">haveBirthday</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age++; <span class="comment">//increase this person&#x27;s age (accessing own attribute)</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//a method that takes in a Person type as a parameter</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sayHello</span><span class="params">(Person otherPerson)</span> &#123;</span><br><span class="line">        <span class="comment">//call method on parameter object for printing</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, &quot;</span> + otherPerson.getName());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//access own attribute for printing</span></span><br><span class="line">        System.out.println(<span class="string">&quot;I am &quot;</span> + <span class="built_in">this</span>.age +  <span class="string">&quot; years old&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在Java中使用类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="comment">//instantiate two new People objects</span></span><br><span class="line">    <span class="type">Person</span> <span class="variable">aliceObj</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;Alice&quot;</span>, <span class="number">21</span>);</span><br><span class="line">    <span class="type">Person</span> <span class="variable">bobObj</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;Bob&quot;</span>, <span class="number">42</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//call method on Alice (changing her fields)</span></span><br><span class="line">    aliceObj.haveBirthday();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//call the method ON Alice, and PASS Bob as a param to it</span></span><br><span class="line">    aliceObj.sayHello(bobObj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里对语法进行一个总结：</p>
+<ol>
+<li>使用 <code>class</code> 关键字对类进行声明；</li>
+<li>Java的类中的变量（attributes）在类的定义顶部定义；</li>
+<li>Java<strong>使用构建函数</strong>来初始化类的实例化对象里的变量；</li>
+<li>类的方法定义在类定义的内部，使用该类的实例调用类里定义的方法时可以使用：<code>obj.foo()</code></li>
+<li>在类里调用类的方法和变量时可以用 <code>this.attr</code> 和 <code>this.foo()</code> 来调用；</li>
+<li>使用 <code>new</code> 关键字来实例化对象，实例化对象是一个变量，可以作为参数传递；</li>
+</ol>
+<h3 id="ES6的类"><a href="#ES6的类" class="headerlink" title="ES6的类"></a>ES6的类</h3><p>定义如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//class declaration</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//a Constructor method</span></span><br><span class="line">    <span class="comment">//this is called when the class is instantiated (with `new`)</span></span><br><span class="line">    <span class="comment">//and has the job of initializing the attributes</span></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">newName, newAge</span>) &#123;</span><br><span class="line">        <span class="comment">//assign parameters to the attributes</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">firstName</span> = newName;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">age</span> = newAge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//return this Person&#x27;s name</span></span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span>; <span class="comment">//return own attribute</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//grow a year</span></span><br><span class="line">    <span class="title function_">haveBirthday</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">age</span>++; <span class="comment">//increase this person&#x27;s age (accessing own attribute)</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//a method that takes in a Person type as a parameter</span></span><br><span class="line">    <span class="title function_">sayHello</span>(<span class="params">otherPerson</span>) &#123;</span><br><span class="line">        <span class="comment">//call method on parameter object for printing</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, &quot;</span> + otherPerson.<span class="title function_">getName</span>());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//access own attribute for printing</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;I am &quot;</span> + <span class="variable language_">this</span>.<span class="property">age</span> +  <span class="string">&quot; years old&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//instantiate two new People objects</span></span><br><span class="line"><span class="keyword">let</span> aliceObj = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;Alice&quot;</span>, <span class="number">21</span>);</span><br><span class="line"><span class="keyword">let</span> bobObj = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;Bob&quot;</span>, <span class="number">42</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//call method on Alice (changing her attributes)</span></span><br><span class="line">aliceObj.<span class="title function_">haveBirthday</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//call the method ON Alice, and PASS Bob as a param to it</span></span><br><span class="line">aliceObj.<span class="title function_">sayHello</span>(bobObj);</span><br></pre></td></tr></table></figure>
+
+<p>几点note：</p>
+<ol>
+<li><p>JavaScript也使用 <code>class</code> 关键字来定义类；</p>
+<ul>
+<li>所有类变量名都需要使用PascalCase命名法！</li>
+</ul>
+</li>
+<li><p>JavaScript中定义类不需要事先声明变量，所有的变量在未被定义时都是 <code>undefined</code>;</p>
+</li>
+<li><p>JavaScript中的构造函数只有一个，名字就叫：<code>constructor()</code>；</p>
+</li>
+<li><p>在JavaScript的类里定义方法的时候不需要使用 <code>function</code> 关键字；</p>
+</li>
+<li><p>实例化对象的方式和Java是一样的，使用 <code>new</code> 关键字，比如：</p>
+<p><code>let aliceObj = new Person(&quot;alice&quot;, 21);</code></p>
+</li>
+<li><p>和Java不同，你可以在一个文件里定义多个类：</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//script.js</span></span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//declare a class</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">    <span class="title function_">bark</span>(<span class="params"></span>) &#123; <span class="comment">/*...*/</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//declare another class</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> &#123;</span><br><span class="line">    <span class="title function_">meow</span>(<span class="params"></span>) &#123; <span class="comment">/*...*/</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//declare a (non-class) function</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">petAnimal</span>(<span class="params">animal</span>) &#123; <span class="comment">/*...*/</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//at the &quot;main&quot; level, instantiate the classes and call the functions</span></span><br><span class="line"><span class="keyword">let</span> fido = <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line"><span class="title function_">petAnimal</span>(fido); <span class="comment">//pass this Dog object to the function</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>ES6也允许类的继承，就像Java一样，使用 <code>extend</code> 关键字来继承：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//The &quot;parent/super&quot; class</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">sit</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;The dog &#x27;</span>+<span class="variable language_">this</span>.<span class="property">name</span>+<span class="string">&#x27; sits. Good boy.&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">bark</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&quot;Woof!&quot;&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//The &quot;child/sub&quot; class (inherits abilities from Dog)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Husky</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Dog</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name, distance</span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>(name); <span class="comment">//call parent constructor</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">distance</span> = distance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//a new method (&quot;special ability&quot;)</span></span><br><span class="line">    <span class="title function_">throwFootball</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Husky &#x27;</span>+<span class="variable language_">this</span>.<span class="property">name</span>+<span class="string">&#x27; throws &#x27;</span>+<span class="variable language_">this</span>.<span class="property">dist</span>+<span class="string">&#x27; yards&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//override (replace) parent&#x27;s method</span></span><br><span class="line">    <span class="title function_">bark</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">super</span>.<span class="title function_">bark</span>(); <span class="comment">//call parent method</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;(Go huskies!)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//usage</span></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> <span class="title class_">Husky</span>(<span class="string">&quot;Harry&quot;</span>, <span class="number">60</span>); <span class="comment">//make a Husky</span></span><br><span class="line">dog.<span class="title function_">sit</span>(); <span class="comment">//call inherited method</span></span><br><span class="line">dog.<span class="title function_">throwFootball</span>(); <span class="comment">//call own method</span></span><br><span class="line">dog.<span class="title function_">bark</span>(); <span class="comment">//call own (overridden) method</span></span><br></pre></td></tr></table></figure>
+
+<p>继承允许一个子类继承父类的方法和在父类的基础上实现更多的专有功能，且允许你覆写（override）父类的方法。</p>
+<blockquote>
+<p>但注意，JavaScript不是一门面向对象语言，而是使用了 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">prototype system</a> 来定义 <code>Object</code> 对象， 这个特性允许 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance">prototypical inheritance</a> ，ES6的 <code>class</code> 只是提供了一种简洁的语法来实现指定对象的 prototypes罢了。这种特性从第一版的JavaScript里就存在了。</p>
+<p>See <a target="_blank" rel="noopener" href="http://aaditmshah.github.io/why-prototypal-inheritance-matters/">this (detailed) explanation</a> for further discussion.</p>
+</blockquote>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>ES6提供了一种快速简洁的匿名函数写法：lamda functions &#x2F; arrow functions:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">sayHello</span> = (<span class="params">name</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello &#x27;</span>+name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// equal to:</span></span><br><span class="line"><span class="keyword">let</span> sayHello = <span class="keyword">function</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;Hello &#x27;</span>+name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>几点tips：</p>
+<ul>
+<li><p>如果箭头函数没有参数，那么必须在 <code>=&gt;</code> 前面加上 <code>()</code>，如果箭头函数有两个及以上的参数，也必须加上 <code>()</code> 但是，如果仅有一个参数，你可以直接写成：<code>let sayHello = name =&gt; &#39;Hello &#39;+name;</code> ；尽管如此，还是建议加上括号以方便阅读；</p>
+</li>
+<li><p>如果箭头函数只有一个语句，那么你可以省略 <code>&#123;&#125;</code> ；</p>
+</li>
+<li><p>如果箭头函数只有一个语句，且该语句return了一个值，那么你可以省略 <code>return</code> ；</p>
+</li>
+<li><p>但如果函数不返回值，还是建议使用 <code>&#123;&#125;</code> 将函数体包围起来；</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]; <span class="comment">//an array to work with</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//normal function</span></span><br><span class="line">array.<span class="title function_">map</span>(<span class="keyword">function</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num*<span class="number">2</span>; <span class="comment">//multiply each item by 2</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//arrow syntax</span></span><br><span class="line">array.<span class="title function_">map</span>(<span class="function"><span class="params">num</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> num*<span class="number">2</span>; <span class="comment">//multiply each item by 2</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//concise body</span></span><br><span class="line">array.<span class="title function_">map</span>(<span class="function"><span class="params">num</span> =&gt;</span> num*<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>箭头函数非常简洁，正在快速变成标准的JS匿名函数写法。</p>
+<p><strong>尽可能使用箭头函数来表示匿名函数！！！</strong>原因见<a href="#why-use-arrow-functions">这里</a>。</p>
+<h2 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h2><p>如前所述，this可以用来指代当前的对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> doggy = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Fido&quot;</span>,</span><br><span class="line">  <span class="attr">bark</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>, <span class="string">&quot;woofs&quot;</span>); <span class="comment">//`this` is object the function was called on</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">doggy.<span class="title function_">bark</span>(); <span class="comment">//=&gt; &quot;Fido woofs&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>但请注意，function是变量，所以可以被重新赋值；而this是在<strong>执行时间（execution time）</strong>里实时定义的，因此其代表了在运行代码时指向的对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//An object representing a Dog</span></span><br><span class="line"><span class="keyword">let</span> doggy = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Fido&quot;</span>,</span><br><span class="line">  <span class="attr">bark</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&quot; woofs&quot;</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// An object representing another Dog</span></span><br><span class="line"><span class="keyword">let</span> doggo = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Spot&quot;</span>,</span><br><span class="line">  <span class="attr">bark</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&quot; yips&quot;</span>)&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//This is Fido barking</span></span><br><span class="line">doggy.<span class="title function_">bark</span>( <span class="comment">/*this = doggy*/</span> ); <span class="comment">//=&gt; &quot;Fido woofs&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//This is Spot barking</span></span><br><span class="line">doggo.<span class="title function_">bark</span>( <span class="comment">/*this = doggo*/</span> ); <span class="comment">//=&gt; &quot;Spot yips&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//This is Fido using Spot&#x27;s bark!</span></span><br><span class="line">doggy.<span class="property">bark</span> = doggo.<span class="property">bark</span>; <span class="comment">//assign the function value to `doggy`</span></span><br><span class="line">doggy.<span class="title function_">bark</span>( <span class="comment">/*this = doggy*/</span>) <span class="comment">//=&gt; &quot;Fido yips&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意 this 关键字指向的是调用方法的对象！</li>
+</ul>
+<h3 id="回调函数的问题"><a href="#回调函数的问题" class="headerlink" title="回调函数的问题"></a>回调函数的问题</h3><p>看下面这段代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">   <span class="title function_">constructor</span>(<span class="params">name</span>)&#123; <span class="variable language_">this</span>.<span class="property">name</span> = name; &#125; <span class="comment">//basic constructor</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">//greet each person in the given array</span></span><br><span class="line">   <span class="title function_">greetAll</span>(<span class="params">peopleArray</span>) &#123;</span><br><span class="line">      <span class="comment">//loop through each Person using a callback</span></span><br><span class="line">      peopleArray.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">person</span>) &#123;</span><br><span class="line">         <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hi&quot;</span>+person.<span class="property">name</span>+<span class="string">&quot;, I&#x27;m &quot;</span>+<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于 <code>forEach()</code> 的回调函数是在需要时才被调用，其被调用时并不是通过 <strong>dot notation</strong>来调用的，所以调用时里面的 <code>this.name</code> 就变成了 <code>undefined.name</code>，因此触发报错： <code>TypeError: Cannot read property &#39;name&#39; of undefined</code>.</p>
+<p>解决这个问题的方法就是<strong>用箭头函数</strong>来写匿名回调函数！</p>
+<p>箭头函数有一个特性：和周围的代码共享语义上的 <code>this</code> 关键字。<span id="why-use-arrow-functions">这就是你为什么总是需要使用箭头函数来表示匿名回调函数的原因！</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">   <span class="title function_">constructor</span>(<span class="params">name</span>)&#123; <span class="variable language_">this</span>.<span class="property">name</span> = name; &#125;</span><br><span class="line"></span><br><span class="line">   <span class="title function_">greetAll</span>(<span class="params">peopleArray</span>) &#123;</span><br><span class="line">      peopleArray.<span class="title function_">forEach</span>(<span class="function">(<span class="params">person</span>) =&gt;</span> &#123; <span class="comment">//arrow function (subtle difference)</span></span><br><span class="line">         <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hi&quot;</span>+person.<span class="property">name</span>+<span class="string">&quot;, I&#x27;m &quot;</span>+<span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">//works correctly!</span></span><br><span class="line">      &#125;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>除此之外，你也可以用 <code>function.bind()</code> 来永久地把一个 <code>this</code> 和某个函数绑定，这样无论谁调用这个函数，它所代表的this永远不变：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//re-assign function</span></span><br><span class="line">myFunction = myFunction.<span class="title function_">bind</span>(thisValue);</span><br></pre></td></tr></table></figure>
+
+<p><code>.bind()</code> 会返回一个新函数，上面是常用的用法：把新返回的绑定好this的函数赋值给旧函数。</p>
+<p>This is a common pattern in React (and has some minuscule performance benefits), 但是在这门课程中：you should stick with arrow functions for cleanliness and readability.</p>
+</blockquote>
+<h2 id="Destructuring-and-Spreading"><a href="#Destructuring-and-Spreading" class="headerlink" title="Destructuring and Spreading"></a>Destructuring and Spreading</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"><strong>destructing assignments</strong></a>：你可以destruct一个数组或对象，即将它们的值一次性赋给一组分立的变量：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> [x, y, z] = myArray; <span class="comment">//assign myArray elements to `x`, `y`, `z` respectively</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">//=&gt; 1;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(y); <span class="comment">//=&gt; 2;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(z); <span class="comment">//=&gt; 3;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myObject = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;a, b, c&#125; = myObject;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">//=&gt; 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">//=&gt; 2;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c); <span class="comment">//=&gt; 3;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，当destruct一个对象的时候，如果等式左边的变量名和对象的 key 名字不同，那么就不会被赋给相应的值，而是为 <code>undefined</code> 。</p>
+<p>如果你想要把值赋给不同名字的变量，见： There is syntax to assign values to different variable names as well, see <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring">the documentation</a> for details.</p>
+<h3 id="Spreading"><a href="#Spreading" class="headerlink" title="Spreading"></a>Spreading</h3><p>如果等式左边的变量和数组或对象里的内容数量不同时，我们可以使用 <code>...</code> ( <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator"><strong>spread operator</strong></a> ) 来将溢出的值塞到一个数组里：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dimensions = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>];</span><br><span class="line"><span class="keyword">let</span> [width, height, ...rest] = dimensions</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(width);  <span class="comment">//=&gt; 10</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(height); <span class="comment">//=&gt; 20</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rest);   <span class="comment">//=&gt; [30, 40]; the rest of the values!</span></span><br></pre></td></tr></table></figure>
+
+<p>同样的，如果一个函数需要传入不定数目的变量时，也可以使用 <code>...</code> ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a function that logs out all of the parameters</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">printArgs</span>(<span class="params">...args</span>)&#123;</span><br><span class="line">    <span class="comment">//all the parameters will be grouped into a single array `args`</span></span><br><span class="line">    args.<span class="title function_">forEach</span>(<span class="function">(<span class="params">arg</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(arg) <span class="comment">//can log out all of them, no matter how many!</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">printArgs</span>(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>); <span class="comment">//=&gt; &quot;a&quot; &quot;b&quot; &quot;c&quot;</span></span><br><span class="line"><span class="title function_">printArgs</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>); <span class="comment">//=&gt; &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//a function that adds up all the arguments (no matter how many!)</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">...numbers</span>) &#123;</span><br><span class="line">    <span class="comment">//numbers is an array, so we can `reduce()` it!</span></span><br><span class="line">    <span class="keyword">let</span> total = numbers.<span class="title function_">reduce</span>(<span class="function">(<span class="params">runningTotal, num</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> runningTotal + num; <span class="comment">//new total</span></span><br><span class="line">    &#125;, <span class="number">0</span>); <span class="comment">//start at 0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//or as one line with a concise arrow function:</span></span><br><span class="line">    <span class="keyword">return</span> numbers.<span class="title function_">reduce</span>(<span class="function">(<span class="params">total, n</span>) =&gt;</span> total+n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">sum</span>(<span class="number">3</span> ,<span class="number">4</span>, <span class="number">3</span>); <span class="comment">// =&gt; 10</span></span><br><span class="line"><span class="title function_">sum</span>(<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>); <span class="comment">// =&gt; 100</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p>当代码变得复杂冗长的时候，再把所有的代码都放在一个 <code>.js</code> 文件里就不太合适了。</p>
+<blockquote>
+<p>Such large files become difficult to read and debug (“where <em>was</em> that function defied?”), can introduce problems with the shared global namespace (“did I already declare a <code>user</code> variable?”), and overall mixes code in a way that violates the <em>Separation of Concerns</em> principle.</p>
+</blockquote>
+<p>把代码拆分为不同的 “Module” 使其各司其职是一个好办法。你不需要使用 <code>&lt;script&gt;</code> 标签来逐个引入它们，ES6提供了一系列功能来组织它们。</p>
+<p>最经常的做法是使用外部工具，如<a target="_blank" rel="noopener" href="https://webpack.js.org/">webpack</a>之类的来加载modules。在这些情况下，您将使用 Node JavaScript 运行时提供的模块加载器。</p>
+<p><strong>虽然不经常这么用</strong>，但如果你需要在浏览器里面使用Modules，你需要在 <code>&lt;script&gt;</code> 标签里声明 <code>type=&quot;module&quot;</code> attribute。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- load a script that can include other modules --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;module&quot;</span> <span class="attr">src</span>=<span class="string">&quot;path/to/script.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="modules-语法"><a href="#modules-语法" class="headerlink" title="modules 语法"></a>modules 语法</h3><blockquote>
+<p>本节介绍网络应用程序中使用的 ES6 模块（ECMAScript 规范的一部分）。不过，Node.js 默认使用另一种模块加载系统 <a target="_blank" rel="noopener" href="https://nodejs.org/docs/latest/api/modules.html#modules_modules"><em>CommonJS</em></a>。该系统使用内置方法 <code>require()</code> 加载模块（结果返回一个 “导出 “变量）。通过将值赋值给 <code>module.exports</code> 全局变量来导出模块。本课程将专门使用 ES6 模块，但最好还是了解一下另一种 <em>CommonJS</em> 方法。</p>
+</blockquote>
+<h4 id="Import"><a href="#Import" class="headerlink" title="Import"></a>Import</h4><p>和Java非常类似，使用 <code>import</code> 关键字来引入：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Java example: import `Random` variable from `java.util` to use globally</span></span><br><span class="line"><span class="keyword">import</span> java.util.Random</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JavaScript: import the `Random` variable from a `util.js` module</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Random</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./util&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>&#123;&#125;</code> 里包含你要引入的变量名（记住，函数也是变量！），然后在 <code>from</code> 关键字后面写上modules所在的相对路径；</p>
+<ul>
+<li>注意：Node-based System，比如React，允许你省略 <code>.js</code> 扩展名。</li>
+<li>注意：如果你没有使用 <code>./</code> 之类的来指定路径，Node Module加载器会自动取 Load Path （e.g., in <code>node_modules/</code>）寻找对应的modules。有时加载外部JS库我们会这么做：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//with jquery installed in `node_modules/`</span></span><br><span class="line"><span class="comment">//import the `$` and `jQuery` variables</span></span><br><span class="line"><span class="keyword">import</span> &#123;$, jQuery&#125; <span class="keyword">from</span> <span class="string">&#x27;jquery&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Export"><a href="#Export" class="headerlink" title="Export"></a>Export</h4><p>想要让另一个文件访问某个module里的变量，你需要先Export它们：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** my-module.js ***/</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> question = <span class="string">&quot;Why&#x27;d the chicken cross the road?&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> answer = <span class="string">&quot;To get to the other side&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">laugh</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;hahaha&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的方法叫做 <strong>“name export”</strong>，后面还会介绍<strong>“default export”</strong>。只要某个变量被import了，那么它就是全局可用的。 (just as if it were defined in a previous <code>&lt;script&gt;</code> tag)</p>
+<p>有好几种方法来import和export：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** my-module.js ***/</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123; <span class="keyword">return</span> <span class="string">&#x27;foo&#x27;</span>; &#125; <span class="comment">//make available (as above)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123; <span class="keyword">return</span> <span class="string">&#x27;bar&#x27;</span>; &#125;</span><br><span class="line"><span class="keyword">export</span> bar; <span class="comment">//export previously defined variable</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; bar <span class="keyword">as</span> barFunction &#125;; <span class="comment">//provide an &quot;alias&quot; (consumer name) for value</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//will not be available (a &quot;private&quot; function)</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">baz</span>(<span class="params"></span>) &#123; <span class="keyword">return</span> <span class="string">&#x27;baz&#x27;</span>; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** index.js ***/</span></span><br><span class="line"><span class="keyword">import</span> &#123;foo, barFunction&#125; <span class="keyword">from</span> <span class="string">&#x27;./my-module&#x27;</span>; <span class="comment">//import multiple values</span></span><br><span class="line"><span class="title function_">foo</span>() <span class="comment">//=&gt; &#x27;foo&#x27;</span></span><br><span class="line"><span class="title function_">barFunction</span>() <span class="comment">//=&gt; &#x27;bar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;foo <span class="keyword">as</span> myFoo&#125; <span class="keyword">from</span> <span class="string">&#x27;./my-module&#x27;</span>; <span class="comment">//provide an &quot;alias&quot; for value</span></span><br><span class="line"><span class="title function_">myFoo</span>(); <span class="comment">//=&gt; &#x27;foo&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> theModule <span class="keyword">from</span> <span class="string">&#x27;./my-module&#x27;</span>; <span class="comment">//import everything that was exported</span></span><br><span class="line">                                          <span class="comment">//loads as a single object with values</span></span><br><span class="line">                                          <span class="comment">//as properties</span></span><br><span class="line">theModule.<span class="title function_">foo</span>(); <span class="comment">//=&gt; &#x27;foo&#x27;</span></span><br><span class="line">theModule.<span class="title function_">barFunction</span>(); <span class="comment">//=&gt; &#x27;bar&#x27;</span></span><br><span class="line">theModule.<span class="title function_">baz</span>(); <span class="comment">//Error [private function]</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 <code>as</code> 关键字，你可以指定某个变量的“假名”，so it is loaded and assigned a different name。这使得你可以将模块里复杂的名字重命名为更简单的名字。</p>
+<p>你也可以import everything：使用 <code>import * as</code> 语法，你可以指定一个代表导出Module的对象名称（如示例中的<code>theModule</code>），每个导出变量都将是该对象的属性。<strong>当你在开发过程中可能要向模块添加额外的导出值，但又不想不断调整导入语句时，这种方法特别有用。</strong></p>
+<p>以及，“default export” 允许每个模块只导出一个默认的变量，为引入模块提供了一些简化。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** my-module.js ***/</span></span><br><span class="line"><span class="comment">//this function is the &quot;default&quot; export</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">sayHello</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello world!&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>export</code> 后使用 <code>default</code> 关键字，这样就可以在引入时只需提供假名来直接引入默认变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** index.js ***/</span></span><br><span class="line"><span class="keyword">import</span> greet <span class="keyword">from</span> <span class="string">&#x27;./my-module&#x27;</span>; <span class="comment">//import the default value</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">greet</span>(); <span class="comment">//=&gt; &quot;Hello world!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>匿名变量也可以作为default输出：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** animals.js ***/</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [<span class="string">&#x27;lion&#x27;</span>, <span class="string">&#x27;tiger&#x27;</span>, <span class="string">&#x27;bear&#x27;</span>]; <span class="comment">//export anonymous array</span></span><br></pre></td></tr></table></figure>
+
+<p>默认导出技术在 React 等面向对象框架中尤为常见，在这些框架中，您可以让每个 JavaScript 模块都包含一个函数或类的代码。可以将单个类作为默认导出，这样其他模块就可以快速轻松地导入它，如</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">MyComponent</span> <span class="keyword">from</span> <span class="string">&#x27;./MyComponent.js&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="其他特性"><a href="#其他特性" class="headerlink" title="其他特性"></a>其他特性</h2><blockquote>
+<p>Syntactic Sugar causes cancer of the semicolon - <a target="_blank" rel="noopener" href="http://www.cs.yale.edu/homes/perlis-alan/quotes.html">Alan Perlis</a></p>
+</blockquote>
+<h3 id="Template-Strings"><a href="#Template-Strings" class="headerlink" title="Template Strings"></a>Template Strings</h3><p>ES6允许你在字符串里直接插入表达式：使用后勾号（`&#96;&#96;）而不是引号来标注，并将注入的表达式写在 <code>$&#123;&#125;</code> 标记内：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> greeting = <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>; <span class="comment">//template string</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(greeting); <span class="comment">//=&gt; &quot;Hello, world!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然而在字符串里放太多的表达式会影响程序的可读性，所以：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//greeting with capitalization. Don&#x27;t do this!</span></span><br><span class="line"><span class="keyword">let</span> greeting = <span class="string">`Hello, <span class="subst">$&#123;name.substr(<span class="number">0</span>,<span class="number">1</span>).toUpperCase() + name.substr(<span class="number">1</span>)&#125;</span>!`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(greeting); <span class="comment">//=&gt; &quot;Hello, world!&quot;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//do this instead!</span></span><br><span class="line"><span class="keyword">let</span> capitalizedName = name.<span class="title function_">substr</span>(<span class="number">0</span>,<span class="number">1</span>).<span class="title function_">toUpperCase</span>() + name.<span class="title function_">substr</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">let</span> greeting = <span class="string">`Hello, <span class="subst">$&#123;capitalizedName&#125;</span>`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(greeting); <span class="comment">//=&gt; &quot;Hello, world!&quot;;</span></span><br></pre></td></tr></table></figure>
+
+<p>比较常见且可能有用的 ES6 特性，其中大部分只是 “语法糖”，使用 ES5 风格的 JavaScript 也能实现类似的行为和功能。因此，您不需要在代码中使用这些功能（尽管它们可能会有所帮助），它们通常会在我们使用 React 等库的过程中出现。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/AirCloud">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
