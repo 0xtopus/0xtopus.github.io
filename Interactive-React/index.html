@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta property="og:type" content="website">
+    <meta name="description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Interactive React - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> h4x0rdecimal 0xtopus </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>0xtopus</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Interactive-React"><span class="toc-text">Interactive React</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%AB%E7%BB%99%E7%BB%84%E4%BB%B6%E6%8C%87%E5%AE%9A%E4%BA%8B%E4%BB%B6%E5%B1%9E%E6%80%A7%EF%BC%81"><span class="toc-text">别给组件指定事件属性！</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State%E5%92%8CHook"><span class="toc-text">State和Hook</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0state"><span class="toc-text">更新state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State-vs-Props"><span class="toc-text">State vs. Props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State%E7%9A%84%E6%8F%90%E5%8D%87"><span class="toc-text">State的提升</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%92%E5%8A%A8%E5%AE%9E%E4%BE%8B"><span class="toc-text">互动实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-text">表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8AJAX%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-text">用AJAX获取数据</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> h4x0rdecimal 0xtopus </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Interactive React
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-12-09 13:36:23</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Interactive-React"><a href="#Interactive-React" class="headerlink" title="Interactive React"></a>Interactive React</h1><p>这里讨论任何使用React Library构建网页互动，包括如何处理事件、通过钩子函数（hooks）来给组件存储动态数据，以及介绍如何实现某些特定的互动操作（比如使用表格和下载数据）。</p>
+<h2 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h2><p>React支持多种多样的用户互动操作，就像DOM和JQuery一样：注册一个事件监听器并提供特定的回调函数在某个事件发生的时候执行。</p>
+<p>在React中，你在<strong>组件中返回的JSX元素里</strong>使用 <code>on</code> + <code>特定事件名</code> 的组合来作为属性名称，而给该属性值赋值为特定回调函数来绑定事件。</p>
+<p>该属性想要使用小驼峰命名法（camelCase），比如 <code>onClick</code> 或者 <code>onMouseOver</code> 等等。如果你想查看所有支持的事件处理属性名，见： <a target="_blank" rel="noopener" href="https://reactjs.org/docs/events.html#supported-events">synthetic events</a>.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//A component representing a button that logs a message when clicked</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">MyButton</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//A function to call when clicked. The name is conventional, but arbitrary.</span></span><br><span class="line">    <span class="comment">//The callback will be passed the DOM event (just like with DOM callbacks)</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">handleClick</span> = (<span class="params">event</span>) =&gt; &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;clicky, clicky&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="comment">//make a button with an `onClick` attribute!</span></span><br><span class="line">    <span class="comment">//this &quot;registers&quot; the listener and sets the callback</span></span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span>&gt;</span>Click me!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一般来说，回调函数在组件内定义，成为“函数中的函数”（因为组件也是函数！），所以按照惯例我们会将嵌套的函数用箭头函数定义。</p>
+<p>DOM会为返回的 <code>&lt;button&gt;</code> 元素绑定事件。</p>
+<p>你也可以在返回的JSX里面的元素里面定义回调函数，但易读性差，不推荐。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">MyButton</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;(evt)</span> =&gt;</span> console.log(&quot;clicky clicky&quot;)&#125;/&gt;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="别给组件指定事件属性！"><a href="#别给组件指定事件属性！" class="headerlink" title="别给组件指定事件属性！"></a>别给组件指定事件属性！</h3><p><strong>注意：是在React的元素（即HTML元素）里注册事件！不可以给React组件注册事件！！！</strong>如果你在React组件里尝试指定事件处理属性，那么实际上你只是给组件绑定了一个Props！</p>
+<blockquote>
+<p>If you tried to specify a <code>&lt;MyButton onClick=&#123;callback&#125;&gt;</code>, you would be passing a <em>prop</em> that just happened to be called <code>onClick</code>, but otherwise has no special meaning!</p>
+</blockquote>
+<blockquote>
+<p>尽管功能类似，但React的事件处理属性和HTML的事件处理器不一样，即：<code>onClick</code> ≠ <code>onclick</code> ！React属性只适用于React event system。</p>
+</blockquote>
+<h2 id="State和Hook"><a href="#State和Hook" class="headerlink" title="State和Hook"></a>State和Hook</h2><p>为了使得React的组件能根据用户的动作而实时改变，我们需要追踪组件的状态（State），这就需要用到用到<em>state</em>，注意，只有会不停改变状态的数据才能被声明为state，如果变量是<strong>一成不变</strong>的，或者<strong>并未在DOM中直接或间接地被渲染</strong>，那就不是state！</p>
+<p>当state发生变化的时候，组件就会根据state的变化被重新渲染！</p>
+<p>对于函数组件，state可以用State Hook来添加到组件中。</p>
+<blockquote>
+<p>Hooks were introduced with React v16.8 (October 2018), and thus are the “new” current way of handling state. For details on older techniques (which require using <em>class components</em>), see <a target="_blank" rel="noopener" href="https://info340.github.io/class-components.html#state-in-class-components"><em>State in Class Components</em></a>.</p>
+</blockquote>
+<blockquote>
+<p>Fun fact: hooks are basically an example of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mixin"><em>mixins</em></a>, which are an object-oriented technique for including&#x2F;injecting data or behavior in a class without needing to inherit that behavior from a parent class.</p>
+</blockquote>
+<p>State Hook实际上是React提供的一个函数：<code>useState()</code> ，使用 named export 来从React Library里将其引入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//import the state hook function</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>然后，一般在函数组件的最上方使用 <code>useState()</code> 函数来创建state，这样后面的代码就可以使用创建的state变量了：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">CountingButton</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//Define a `count` state variable, initially 0</span></span><br><span class="line">    <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//an event handling callback</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">handleClick</span> = (<span class="params">event</span>) =&gt; &#123;</span><br><span class="line">        <span class="title function_">setCount</span>(count+<span class="number">1</span>); <span class="comment">//update the state to be a new value</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &#123; <span class="comment">/* a button with the event handler that displays the state variable */</span>&#125;</span><br><span class="line">        &lt;button onClick=&#123;handleClick&#125;&gt;<span class="title class_">You</span> clicked me &#123;count&#125; times&lt;/button&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在组件被渲染&#x2F;重新渲染的时候，state变量会被追踪和储存，你可以将state变量当成一个<strong>实例变量</strong>，实际上它被存储在一个对象实例变量中（object instance variable）。</p>
+<p>函数 <code>useState</code> 的参数是state变量的初始值，在上面的代码中，<code>count</code> 被初始化为0.</p>
+<p>函数 <code>useState</code> 的返回值是一个有两个元素的数组：第一个是当前的state变量的值，第二个是用来改变该值的set函数，你可以使用“array destructuring”来分别将这两个值赋给不同的变量。</p>
+<p>你可以将返回值命名为啥都行，比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [countVariable, functionToUpdateCount] = <span class="title function_">useState</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Because the function is a “setter” it’s usually named as such (<code>setVARIABLE</code>), but this is not required. It’s just a function; you can name it whatever you want.</p>
+</blockquote>
+<h3 id="更新state"><a href="#更新state" class="headerlink" title="更新state"></a>更新state</h3><p>不可以直接修改state变量！这也是为何state变量被声明为 <code>const</code> 的原因。</p>
+<p>请使用set函数来更新。当set函数被调用的时候，不仅仅state变量被更新，其对应的组件也会被重新渲染。</p>
+<p>React会**异步(<a target="_blank" rel="noopener" href="https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous"><em>asynchronous</em></a>)**地将一打state变量的更新打包，然后用一个请求一次性将页面中需要更新的组件重新渲染完成，这样，既减少了重新渲染的次数，又保证了页面刷新的高效性。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//An Component with a callback that doesn&#x27;t handle asynchronous state changes</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">CounterWithError</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">3</span>) <span class="comment">//initial value of 3</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">handleClick</span> = (<span class="params">event</span>) =&gt; &#123;</span><br><span class="line">        <span class="title function_">setCount</span>(<span class="number">4</span>); <span class="comment">//change `count` to 4</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(count); <span class="comment">//will output &quot;3&quot;; state has not changed yet!</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>this example, because <code>setCount()</code> is asynchronous, you can’t immediately access the updated state variable after calling the function. You instead need to wait for the component to “rerender”—when the component’s DOM is regenerated, it will use the updated value. If you want to see that value, log it out right before you return the DOM (not inside of the click event handler).</p>
+</blockquote>
+<p>在重新渲染的时候，你的函数组件会被再次重新调用，这意味着所有函数组件里的逻辑都会被重新执行一遍！</p>
+<blockquote>
+<p><strong>警告：</strong>永远不要在函数组件内之间调用set函数，否则会触发<strong>无限循环的递归调用</strong>！</p>
+</blockquote>
+<p>在函数组件里的回调函数里，你可以为一个组件添加多个state变量：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Example from React documentation</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ExampleWithManyStates</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//Declare multiple state variables!</span></span><br><span class="line">    <span class="keyword">const</span> [age, setAge] = <span class="title function_">useState</span>(<span class="number">42</span>);</span><br><span class="line">    <span class="keyword">const</span> [fruit, setFruit] = <span class="title function_">useState</span>(<span class="string">&#x27;banana&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> [todos, setTodos] = <span class="title function_">useState</span>([&#123; <span class="attr">text</span>: <span class="string">&#x27;Learn Hooks&#x27;</span> &#125;]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尽管可以把一堆state值存放在一个数组或者对象里，上面这种做法更加简洁，而且在只有少部分数据需要更新时无需更新整个数组或对象，因此十分推荐！</p>
+<p>同样，如果你要使用set函数更新一个类型为数组或对象的state变量，请<strong>创建一个全新的变量</strong>而不是将原state变量的成员该值后传递给set函数，因为React不会检查原变量的成员，这是为了保证数据的不变性：</p>
+<ul>
+<li>错误的示范：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">TodoListWithError</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//a state value that is an array of objects</span></span><br><span class="line">    <span class="keyword">const</span> [todos, setTodos] = <span class="title function_">useState</span>([&#123; <span class="attr">text</span>: <span class="string">&#x27;Learn Hooks&#x27;</span> &#125;]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">handleClick</span> = (<span class="params">event</span>) =&gt; &#123;</span><br><span class="line">        todos[<span class="number">0</span>].<span class="property">text</span> = <span class="string">&quot;Fix bugs&quot;</span>; <span class="comment">//modify the object but don&#x27;t make a new one</span></span><br><span class="line">        <span class="title function_">setTodos</span>(todos) <span class="comment">//This won&#x27;t work!</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>正确的示范：</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">TodoList</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//a state value that is an array of objects</span></span><br><span class="line">    <span class="keyword">const</span> [todos, setTodos] = <span class="title function_">useState</span>([&#123; <span class="attr">text</span>: <span class="string">&#x27;Learn Hooks&#x27;</span> &#125;]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">handleClick</span> = (<span class="params">event</span>) =&gt; &#123;</span><br><span class="line">        <span class="comment">//create a copy of the array using the `map()` function</span></span><br><span class="line">        <span class="keyword">const</span> todosCopy = todos.<span class="title function_">map</span>(<span class="function">(<span class="params">todoObject, index</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(index == <span class="number">0</span>) &#123; <span class="comment">//transform objects if needed</span></span><br><span class="line">                todoObject.<span class="property">text</span> = <span class="string">&quot;Fix bugs&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> todoObject; <span class="comment">//return object to go into new array</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">setTodos</span>(todosCopy) <span class="comment">//This works!</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一般的，可以使用 <code>.map()</code> 来创建新数组，使用 spread operator 或 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign()</code> function</a> 来创建新对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//an original object</span></span><br><span class="line"><span class="keyword">const</span> original = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Create a copy, taking the property of `original` and assigning them into</span></span><br><span class="line"><span class="comment">//a fresh object</span></span><br><span class="line"><span class="keyword">const</span> copy = &#123; ...original &#125; <span class="comment">//using the spread operator</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(copy) <span class="comment">//&#123;a: 1, b: 2&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(copy == original) <span class="comment">//false, different objects</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="State-vs-Props"><a href="#State-vs-Props" class="headerlink" title="State vs. Props"></a>State vs. Props</h3><p>State是会随着与用户交互而改变的数据，而Props是父组件传入的数据，你可以将props的值赋给一个State变量，但props的值是不变的，只是恰好作为state变量的初值罢了。</p>
+<blockquote>
+<p><code>props</code> are for information that doesn’t change from the Component’s perspective, including “initial” data. <code>state</code> is for information that will change, usually due to user interaction.</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//A component representing a count</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Counter</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(props.<span class="property">startAt</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> counter = <span class="language-xml"><span class="tag">&lt;<span class="name">Counter</span> <span class="attr">startAt</span>=<span class="string">&#123;5&#125;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>出于对性能的考虑，应当尽可能地使state变量的数量保持最小，如果你不确定某个值是否应该为state，考虑以下三个问题：</p>
+<ol>
+<li>如果这个值是props传递进组件的，那么大概率它不应该是一个state；</li>
+<li>如果该值不会发生变化，那么它不是state；</li>
+<li>如果这个值是基于另一个props或state变量，那么它不是state。</li>
+</ol>
+<h3 id="State的提升"><a href="#State的提升" class="headerlink" title="State的提升"></a>State的提升</h3><p>即Lifting up state，由于父组件可以轻松地将state变量作为props传递给子组件，而state变量在兄弟组件之间难以传递，因此，对于某些情境下需要互通state数据的兄弟组件来说（比如一个搜索框和搜索结果栏），我们会把这些state放到它们<strong>层级最低的共同的父组件</strong>中，在父组件里定义一个可以修改该state的回调函数作为props传递给子组件，让子组件发生交互的时候调用该回调函数触发父组件的重新渲染。</p>
+<p>由于父组件重新渲染的时候也会顺便生成新的子组件，这样就实现了父组件和兄弟组件和它自己的重渲染。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">App</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">SearchForm</span> /&gt;</span></span> &#123;<span class="comment">/* has the data */</span>&#125;</span><br><span class="line">  &lt;<span class="title class_">ResultsList</span> /&gt; &#123;<span class="comment">/* needs the data */</span>&#125;</span><br><span class="line">&lt;/<span class="title class_">App</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下面是一个 <code>VotingApp</code> 的例子，通过计算哪个按钮被点击的次数最多而显示结果（<code>winner</code>）。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">VotingApp</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="comment">//initialize the state counts, one for each color</span></span><br><span class="line">    <span class="comment">//using a single state value so that there is only one &quot;update&quot; function</span></span><br><span class="line">    <span class="keyword">const</span> [counts, setCounts] = <span class="title function_">useState</span>(&#123;<span class="attr">red</span>: <span class="number">0</span>, <span class="attr">blue</span>: <span class="number">0</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//a function to update the state</span></span><br><span class="line">    <span class="comment">//expects a &quot;color&quot; for which button was clicked</span></span><br><span class="line">    <span class="keyword">const</span> handleCount = <span class="keyword">function</span>(<span class="params">color</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(color + <span class="string">&quot; got a vote!&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> newCounts = &#123; ...counts &#125; <span class="comment">//make a duplicate of the object</span></span><br><span class="line">        newCounts[color]++; <span class="comment">//update the local copy</span></span><br><span class="line"></span><br><span class="line">        <span class="title function_">setCounts</span>(newCounts) <span class="comment">//update the state with the changed copy</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//render based on current state</span></span><br><span class="line">    <span class="keyword">let</span> winner = <span class="string">&quot;tie&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span>(counts.<span class="property">red</span> &gt; counts.<span class="property">blue</span>) winner = <span class="string">&quot;red&quot;</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(counts.<span class="property">blue</span> &gt; counts.<span class="property">red</span>) winner = <span class="string">&quot;blue&quot;</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>Current winner is: &#123;winner&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/* Pass the callback to each button as a prop */&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">CandidateButton</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span> <span class="attr">winner</span>=<span class="string">&#123;winner&#125;</span> <span class="attr">callback</span>=<span class="string">&#123;handleCount&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">CandidateButton</span> <span class="attr">color</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">winner</span>=<span class="string">&#123;winner&#125;</span> <span class="attr">callback</span>=<span class="string">&#123;handleCount&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">CandidateButton</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">handleClick</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        <span class="comment">//On click, execute the given callback function (passing in own name)</span></span><br><span class="line">        props.<span class="title function_">callback</span>(props.<span class="property">color</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//render based on current props</span></span><br><span class="line">    <span class="keyword">let</span> label = <span class="string">&quot;I am not winning&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span>(props.<span class="property">winner</span> === props.<span class="property">color</span>)</span><br><span class="line">        label = <span class="string">&quot;I am winning!&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">className</span>=<span class="string">&#123;props.color&#125;</span> <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;label&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>流程图如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">	A(VotingApp) -- handleCount作为props传入 --&gt; B(CandidateButton)</span><br><span class="line">	B -- props.callback 触发重渲染 --&gt; A</span><br></pre></td></tr></table></figure>
+
+<p>总结起来，制作互动React应用可以遵循下列步骤：</p>
+<ol>
+<li>先使用组件建立一个静态的（没有任何互动的）版本；</li>
+<li>找出所有需要随着互动而改变的变量，它们就是要存储在state里的变量；</li>
+<li>将state变量存在需要它们的组件的最低层的共同祖先组件中；</li>
+<li>将上述state作为props传入子组件；</li>
+<li>将回调函数作为props传递给子组件；</li>
+</ol>
+<h2 id="互动实例"><a href="#互动实例" class="headerlink" title="互动实例"></a>互动实例</h2><p>一些常用的React实例：</p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>我们常常要创建一些表格（<a target="_blank" rel="noopener" href="https://reactjs.org/docs/forms.html">forms</a>），这样用户就可以填写并提交一些我们想要的信息。	</p>
+<p>在HTML中，我们用 <code>&lt;input&gt;</code> 元素来追踪用户在表格中输入的值，这些值由属性 <code>value</code> 来追踪：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Select the &lt;input type=&quot;text&quot;&gt; element</span></span><br><span class="line"><span class="keyword">let</span> textInput = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;input[type=&quot;text&quot;]&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Event that occurs whenever the input is changed</span></span><br><span class="line">textInput.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> input = event.<span class="property">target</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(input.<span class="property">value</span>); <span class="comment">//access that elements &quot;state&quot;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>有时候我们会需要将用户的输入作为一个AJAX请求发送出去，或者你只是想验证一下用户输入的密码是否符合安全规范。但在React中使用input往往会引起一些问题。因此推荐的方法是使用 <a target="_blank" rel="noopener" href="https://reactjs.org/docs/forms.html#controlled-components"><strong>controlled Components</strong></a> 。</p>
+<p>这种方法就像是用React组件读取用户在 <code>&lt;input&gt;</code> 元素中输入的内容，即通过事件处理 <code>onChange</code> 触发回调函数拿到input里的内容，把用户输入的内容赋给的组件中的 <code>&lt;input&gt;</code> 的 <code>value</code> 属性和定义的state变量（在下面为 <code>inputValue</code>），通过state变量的改变触发重渲染。</p>
+<blockquote>
+<p>It’s like React is snatching the data from the <code>&lt;input&gt;</code> and then claiming credit for it.</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">MyInput</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> [inputValue, setInputValue] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>)<span class="comment">//initialize as empty string</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//respond to input changes</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">handleChange</span> = (<span class="params">event</span>) =&gt; &#123;</span><br><span class="line">        <span class="comment">//get the value that the &lt;input&gt; now has</span></span><br><span class="line">        <span class="keyword">let</span> newValue = event.<span class="property">target</span>.<span class="property">value</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//update the state to use that new value, rendering the component</span></span><br><span class="line">        <span class="title function_">setInputValue</span>(newValue);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/* The input will be rendered with the React-controlled value */&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">onChange</span>=<span class="string">&#123;handleChange&#125;</span> <span class="attr">value</span>=<span class="string">&#123;inputValue&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>You typed: &#123;inputValue&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips：</strong></p>
+<ul>
+<li>当然，你也可以用一个controlled form渲染多个 <code>&lt;input&gt;</code> 标签，这样你就可以在同一个组件里用不同的state变量追踪它们的输入值了。这在验证“请重新输入密码”栏里的密码是否和之前输入的密码一致时非常有用！</li>
+<li>在React中维护表格的健壮性其实是一件很困难的事！ (especially when compared to other frameworks such as Angular). 你可以使用外部的库，比如 <a target="_blank" rel="noopener" href="https://jaredpalmer.com/formik">Formik</a> 来帮助你开发表格并避开一些很难考虑到的极端情况。</li>
+</ul>
+<h3 id="用AJAX获取数据"><a href="#用AJAX获取数据" class="headerlink" title="用AJAX获取数据"></a>用AJAX获取数据</h3><p>生命周期回调函数（lifecycle callback functions）最常见的用途之一是异步访问数据，例如通过 AJAX 请求获取数据（见第 <a target="_blank" rel="noopener" href="https://info340.github.io/ajax.html#ajax">18 章</a>）。本节将详细介绍如何在 React 框架中异步加载数据。</p>
+<p>首先， React 代码是使用 Webpack 转译的。因此，某些 API（包括 <code>fetch()</code>）并不像现代浏览器那样 “内置 “于 React。正如第 18 章所述，为了支持这些 “其他 “浏览器，您需要加载一个 <em>polyfill</em>。您可以在 React 中安装 whatwg-fetch 库，然后在 React 代码中导入该 polyfill：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># On command line, install the polyfill</span></span><br><span class="line">npm install whatwg-fetch</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//In your JavaScript, import the polyfill (loading it &quot;globally&quot;)</span></span><br><span class="line"><span class="comment">//This will make the `fetch()` function available</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;whatwg-fetch&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>记住，<code>fetch()</code> 是异步下载数据的。因此，如果要下载一些数据来显示，可能需要一段时间才能到达。我们不希望 React  “等待 “数据（因为 React 的设计宗旨就是快速）。因此，最好的做法是发送 <code>fetch()</code> 请求获取数据，然后在数据下载完成后调用 set state 函数用下载的数据更新组件。(可以将其数据状态初始化为的 “空数组”）。</p>
+<p>在 React 中，从互联网获取数据被认为是一种<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)"><strong>side effect</strong></a>。函数组件最好只做一件事：返回将在屏幕上呈现的 DOM。但下载数据会修改该框架之外的东西，因为它会修改网络状态&#x2F;信息，甚至远程服务器的状态！因此，直接在组件函数内部调用 fetch() 是糟糕的编程风格，并可能在组件渲染时引发问题和错误。例如，如果获取的数据返回太快或太慢，尝试设置还未绑定到DOM的状态变量（从而重新渲染）会导致 React 崩溃。如果state更新了并重新渲染了组件，再次调用组件函数将导致组件再次下载数据，从而可能造成无限循环！</p>
+<p>因此，你可以使用 <a target="_blank" rel="noopener" href="https://reactjs.org/docs/hooks-effect.html"><strong>effect hook</strong></a>,  即 React 函数 **<code>useEffect()</code>**。这可让您让钩子和组件的生命周期挂钩，指定组件完成渲染后应运行的某些代码（函数）。任何会产生副作用的代码（例如下载数据、在 React 渲染之外操作 DOM 或设置对数据源的订阅）都应通过effect hook来运行。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//import the hooks used</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">MyComponent</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//store the data in a state variable, initialized as an empty array</span></span><br><span class="line">    <span class="keyword">const</span> [data, setData] = <span class="title function_">useState</span>([]);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//specify the effect hook function</span></span><br><span class="line">    <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">fetch</span>(dataUri) <span class="comment">//send AJAX request</span></span><br><span class="line">          .<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> res.<span class="title function_">json</span>())</span><br><span class="line">          .<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> processedData = data.<span class="title function_">filter</span>(...).<span class="title function_">map</span>(...) <span class="comment">//do desired processing</span></span><br><span class="line">            <span class="title function_">setData</span>(processedData) <span class="comment">//change the state and re-render</span></span><br><span class="line">          &#125;)</span><br><span class="line">    &#125;, []) <span class="comment">//empty array is the second argument to the `useEffect()` function.</span></span><br><span class="line">           <span class="comment">//It says to only run this effect on first render</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//Map the data values into DOM elements</span></span><br><span class="line">    <span class="comment">//Note that this works even before data is loaded (when the array is empty!)</span></span><br><span class="line">    <span class="keyword">let</span> dataItems = data.<span class="title function_">map</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span>&gt;</span>&#123;item.value&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>; <span class="comment">//return DOM version of datum</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//render the data items (e.g., as a list)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span>&#123;dataItems&#125;<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <code>useEffect()</code> 函数需要两个参数：</p>
+<ul>
+<li>一个回调函数作参数，该函数将在组件渲染后运行。关于如何使用该函数，请注意以下几点：<ul>
+<li>与一样，必须 <code>import</code> 效果钩子函数 <code>useEffect</code>（作为named import）。</li>
+<li><code>useEffect()</code> 函数将组件渲染后运行的回调函数一般声明为一个箭头函数，注意，<strong>该回调函数不需要参数。</strong></li>
+<li>在 <code>useEffect()</code> 回调函数内部执行正常的 <code>fetch()</code> 调用。请注意，下载的数据会通过调用 set state 函数（本例中名为 <code>setData()</code>）分配给组件的状态变量。</li>
+</ul>
+</li>
+<li>第二个参数是一个数组，表示当数组内指定的状态发生变化时才重新渲染组件（如果是空数组，那么表示仅在第一次渲染组件的时候运行 effect函数）。</li>
+</ul>
+<blockquote>
+<p>By default, the effect callback will be executed after <em>each</em> time the component renders. That means that if the component needed to re-render (because a prop changed for example), then the data would be downloaded a second time! To avoid this, you can pass the <code>useEffect()</code> function an optional second argument. This argument should be an array of values that the effect “depends on”—the effect will only be re-run if one of these variables changes between renders:</p>
+</blockquote>
+<p>虽然理论上组件要渲染两次（一次没有数据，另一次有数据），但 React 可以将这些请求处理打包在一起处理，如果数据下载速度足够快，用户就不会注意到。“This is also a good reason to <a target="_blank" rel="noopener" href="https://reactjs.org/docs/conditional-rendering.html">conditionally</a> include DOM elements like spinners when rendering data.”有条件的包含DOM元素？</p>
+<p><code>useEffect()</code> 函数无需返回任何值。事实上，它能返回的唯一值是一个 “清理 “回调函数，每当组件从 DOM 中移除时，React 都会运行该函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">cleanup</span>(<span class="params"></span>) &#123; <span class="comment">//function name is arbitrary</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;component has been removed!&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>只有在需要cleanup的时候，比如：subscribing to a data source or handling some user authentication behaviors. 普通的 <code>fetch()</code> 不需要cleanup。</p>
+<blockquote>
+<p>React里有很多种hooks，更多信息请参考 <a target="_blank" rel="noopener" href="https://reactjs.org/docs/hooks-reference.html">documentation</a>。但一般来说，只有在遇到architectural problem (e.g., you have a lot of repeated code)你才需要使用hook — 否则： stick with the basic structure of props and state!.</p>
+</blockquote>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/AirCloud">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
