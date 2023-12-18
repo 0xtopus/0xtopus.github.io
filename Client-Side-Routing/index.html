@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta property="og:type" content="website">
+    <meta name="description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Client-Side Routing - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> h4x0rdecimal 0xtopus </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>0xtopus</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Client-Side-Routing"><span class="toc-text">Client-Side Routing</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E9%A1%B5App"><span class="toc-text">单页App</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-Router"><span class="toc-text">React-Router</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Routing"><span class="toc-text">Routing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-text">兼容性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nested-Routes"><span class="toc-text">Nested Routes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%B5%8C%E5%A5%97%E9%A1%B5%E9%9D%A2"><span class="toc-text">默认嵌套页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-text">安全性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E5%A4%A7%E5%9E%8BApp%E6%97%B6%E7%9A%84%E5%BB%BA%E8%AE%AE"><span class="toc-text">构建大型App时的建议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URL%E5%8F%82%E6%95%B0"><span class="toc-text">URL参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#query-param"><span class="toc-text">query param</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linking"><span class="toc-text">Linking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-text">重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-Routing%E5%92%8CHosting"><span class="toc-text">React Routing和Hosting</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> h4x0rdecimal 0xtopus </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Client-Side Routing
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-12-18 07:25:23</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>参考：<a target="_blank" rel="noopener" href="https://info340.github.io/client-side-routing.html">Chapter 17 Client-Side Routing</a></p>
+<h1 id="Client-Side-Routing"><a href="#Client-Side-Routing" class="headerlink" title="Client-Side Routing"></a>Client-Side Routing</h1><p>这里讨论如何使用React来开发单页应用（Single Page Applications，SPA）。单页应用只有一个HTML文件，但使用DOM操作和AJAX请求来产生多个页面的效果。这种结构由client-side routing库 <code>react-router</code> 实现，这个库允许你基于浏览器的URL来渲染不同的组件，从而允许每个“View（页面，或者组件）”被当做独一无二的资源（<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Web_resource">resource</a>）来对待。</p>
+<h2 id="单页App"><a href="#单页App" class="headerlink" title="单页App"></a>单页App</h2><p>React允许你基于不同的条件（比如 <code>state</code> 变量）来动态地渲染Views（组件）。</p>
+<p>一个组件经常会被作为一个单独的页面存在而被当成独立的资源，所以它常常会有自己的URI（统一资源标识符，注意和URL区分！），这允许每个View被独立地引用。比如，一个博客中每篇博文都可以拥有自己的URI，用户可以输入特定的URL来浏览某篇博文。</p>
+<p>服务器侧routing会返回整个HTML文件，并由该文件的JavaScript代码来决定显示什么资源。与服务器侧routing不同，在客户端侧的routing中，显示哪个View由JavaScript代码基于URL决定，而只需要向服务器请求某些特定的资源而非整个HTML页面，这使得加载的速度更快了。同时，这也允许你的App能够更方便地共享state数据和组件。</p>
+<p>在函数组件中，你可以使用条件渲染（<a target="_blank" rel="noopener" href="https://reactjs.org/docs/conditional-rendering.html">conditional rendering</a> ）在route<strong>匹配</strong>的情况下渲染出对应的页面：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="comment">//pick a component based on the URL</span></span><br><span class="line">    <span class="keyword">let</span> componentToRender = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(currentUrl === <span class="string">&#x27;/home&#x27;</span>)&#123; <span class="comment">//pseudocode comparison with URL</span></span><br><span class="line">        componentToRender = <span class="language-xml"><span class="tag">&lt;<span class="name">HomePage</span> /&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(currentUrl === <span class="string">&#x27;/about&#x27;</span>)&#123;</span><br><span class="line">        componentToRender = <span class="language-xml"><span class="tag">&lt;<span class="name">AboutPage</span> /&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//render that component</span></span><br><span class="line">    <span class="keyword">return</span> componentToRender;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="React-Router"><a href="#React-Router" class="headerlink" title="React-Router"></a>React-Router</h2><p><a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4"><strong>React Router</strong></a> 等三方库提供了特定的组件，这些组件包含了<strong>匹配</strong>功能，使得开发单页应用非常方便。</p>
+<blockquote>
+<p>这里仅介绍 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4"><strong>version 6</strong></a> of React Router, released in <em>November 2021</em>. 该版本和之前的版本差别很大，所以当你寻找资源的时候请注意它们使用的版本！关于更早版本的React Router的资料, 请参考 <a target="_blank" rel="noopener" href="https://v5.reactrouter.com/">the documentation for those versions</a>。</p>
+</blockquote>
+<p>使用npm安装React Router：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-router-dom</span><br></pre></td></tr></table></figure>
+
+<p>然后，在你的JS文件中引入这些组件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//import BrowserRouter, Routes, Route, and Link from react-router</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BrowserRouter</span>, <span class="title class_">Routes</span>, <span class="title class_">Route</span>, <span class="title class_">Link</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Routing"><a href="#Routing" class="headerlink" title="Routing"></a>Routing</h2><p><a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/router-components/browser-router"><strong><code>&lt;BrowserRouter&gt;</code></strong></a>组件，有时引入它时我们会将其命名为 <code>&lt;Router&gt;</code>，是React Router的“基底组件（base component”。</p>
+<blockquote>
+<p>该组件负责使 React 应用程序的用户界面（例如渲染哪些组件）与浏览器的 URL 保持同步。BrowserRouter 会 “监听 “URL 的变化，然后将有关当前路由（称为路径）的信息传递给其子组件。这样，每个子组件就能随时知道 URL 中当前显示的路由，而无需直接访问 URL。</p>
+</blockquote>
+<p>你的 App 有且只有一个 <code>&lt;BrowserRouter&gt;</code> 组件，我们一般将其置于 index.js 里，放在 <code>&lt;App&gt;</code> 组件的外面。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BrowserRouter</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./components/App.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//render the App *inside* of the BrowserRouter</span></span><br><span class="line"><span class="keyword">const</span> root = <span class="title class_">ReactDOM</span>.<span class="title function_">createRoot</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>));</span><br><span class="line">root.<span class="title function_">render</span>(</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>在<code>&lt;BrowserRouter&gt;</code> 内（一般在App里），我们可以使用 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/route/route"><code>&lt;Route&gt;</code></a> 组件来指定不同 <code>path</code> 下需要渲染的Views。只有当前 URL 符合指定路径（path）时，该组件才会渲染其元素，就像 <code>if</code> 一样！</p>
+<p>注意：在所有的<code>&lt;Route&gt;</code> 的外面要套一个 <code>&lt;Routers&gt;</code> （<strong>注意 <code>s</code> 复数！</strong>）。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Routes</span>&gt;</span> &#123;/* the collection of routes to match */&#125;</span></span><br><span class="line"><span class="language-xml">            &#123;/* if currentUrlPath === &quot;home&quot; */&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;home&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">HomePage</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">            &#123;/* if currentUrlPath ===  &quot;about&quot; */&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;about&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">AboutPage</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Tips: </p>
+<ul>
+<li><p>根符号 <code>/</code> 用于匹配无路径的 URL（例如，在 <a target="_blank" rel="noopener" href="http://domain.com/">http://domain.com</a> 上显示的内容）。</p>
+</li>
+<li><p>在路径中使用通配符 <code>*</code>将匹配到 “任何内容”，我们可以用来用其来渲染“Pages Not Found”。</p>
+</li>
+<li><p>路径也可包括多个分段（如：<code>main/info</code> ），但多个分段通常对应<a href="#nested-routes">嵌套路由</a>，详见下文。</p>
+</li>
+<li><p>需要被渲染的组件（View）被作为 <code>element</code> prop传递给<code>&lt;Router&gt;</code>。传递的语法比较复杂：将要渲染的<code>&lt;Component/&gt;</code> 放在一个 <code>&#123;&#125;</code> 里：<code>element=&#123;&lt;AboutPage /&gt;&#125;</code></p>
+</li>
+<li><p>你可以给要渲染的组件传递其他props，但这样不好看：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Route</span> path=<span class="string">&quot;profile&quot;</span> element=&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">ProfilePage</span> <span class="attr">user</span>=<span class="string">&#123;userData&#125;</span> /&gt;</span></span>&#125; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果你要传递很多props，建议给它们加一个“Wrapper”组件，使要传递的组件只有一个”Wrapper”。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p><code>BrowserRouter</code> utilizes the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/History_API">HTML5 history API</a> to interact with the brower’s URL and history (what allows you to go “back” and “forward” between URLs). This API is supported by <a target="_blank" rel="noopener" href="https://caniuse.com/#feat=history">modern browsers</a>, but older browsers (i.e., IE 9) would need to use <code>&lt;HashRouter&gt;</code> as an drop-in alternate. <code>HashRouter</code> uses the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fragment_identifier">fragment identifier</a> portion of the URI to track what “page” the app should be showing, causing URL’s to include an extra hash <code>#</code> symbol in them (e.g., <code>https://mydomain.com/#/about</code>).</p>
+<h2 id="Nested-Routes"><a href="#Nested-Routes" class="headerlink" title="Nested Routes"></a>Nested Routes</h2><p>有时候，我们会需要再一个路径的不同子路径下渲染不同的组件，同时保证该父路径的某个组件在任何子路径的情况下都被渲染，比如 <code>/user</code> 路径下，我们都需要渲染 <code>&lt;UserLayout /&gt;</code> 组件，但在子路径 <code>/user/profile</code> 下我们需要渲染 <code>&lt;UserProfile /&gt;</code> 组件；而在子路径 <code>/user/favorites</code> 下，则需要渲染 <code>&lt;UserFavorite /&gt;</code> 组件。 这时候，我们就可以使用嵌套路由来实现这种效果：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// An example of nested routes</span></span><br><span class="line">&lt;<span class="title class_">Routes</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;user&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">UserLayout</span> /&gt;</span>&#125; &gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;profile&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">UserProfile</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;favorites&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">FavoriteItems</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;items&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span> &lt;<span class="attr">ItemList</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line">&lt;/<span class="title class_">Routes</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们使用 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/components/outlet"><code>&lt;Outlet /&gt;</code></a> 在外层的 <code>&lt;Route /&gt;</code> 的 <code>element</code> 的组件函数里代表嵌套路由将要替代的位置：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">UserLayout</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    render (</span><br><span class="line">        &lt;div className=&quot;user-layout&quot;&gt;</span><br><span class="line">            &lt;h1&gt;User Page&lt;/h1&gt;</span><br><span class="line">            &#123;/* will be replaced with &lt;UserProfile&gt;, &lt;UserFavorites&gt;, or null */&#125;</span><br><span class="line">            &lt;Outlet /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>嵌套路由主要用于创建共享布局，如上例所示。<code>&lt;UserLayout&gt;</code> 组件可包含结构元素（如 div），这些元素将在以相同路径开始的路由中共享，但不会在其他路由中被共享。</p>
+<blockquote>
+<p>并非所有的App都需要嵌套路由！如果你的整个应用只有单一的布局，你无需为此另外创建一个组件。你只需要在 <code>&lt;App&gt;</code> 里使用路由来表示动态变化的组件内容即可。</p>
+</blockquote>
+<h3 id="默认嵌套页面"><a href="#默认嵌套页面" class="headerlink" title="默认嵌套页面"></a>默认嵌套页面</h3><p>如果你想要在嵌套路由里创建一个“默认”子组件，你可以给该子组件一个 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/start/tutorial#index-routes"><strong><code>index</code></strong></a> prop:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Routes</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;user&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">UserLayout</span> /&gt;</span>&#125; &gt;</span></span><br><span class="line"><span class="language-xml">        &#123;/* show the UserHome at ``/user` */&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">index</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">UserHome</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;profile&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">UserProfile</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;favorites&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">FavoriteItems</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Routes</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Notice that the <code>index</code> prop (which takes no other values!) in effect “replaces” the <code>path</code> segment for that child.</p>
+</blockquote>
+<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><p><strong>注意：</strong> <code>&lt;route&gt;</code> 只能用来针对对不同的URI显示不同内容，如果你需要根据状态来显示不同的内容（比如用户是否登录等），请使用基于state的 <a target="_blank" rel="noopener" href="https://reactjs.org/docs/conditional-rendering.html">conditional rendering</a>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Greeting</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> isLoggedIn = props.<span class="property">isLoggedIn</span>;</span><br><span class="line">  <span class="keyword">if</span> (isLoggedIn) &#123;    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">UserGreeting</span> /&gt;</span></span>;  &#125;  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">GuestGreeting</span> /&gt;</span></span>;&#125;</span><br><span class="line"><span class="keyword">const</span> root = <span class="title class_">ReactDOM</span>.<span class="title function_">createRoot</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)); </span><br><span class="line"><span class="comment">// Try changing to isLoggedIn=&#123;true&#125;:</span></span><br><span class="line">root.<span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">Greeting</span> <span class="attr">isLoggedIn</span>=<span class="string">&#123;false&#125;</span> /&gt;</span></span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建大型App时的建议"><a href="#构建大型App时的建议" class="headerlink" title="构建大型App时的建议"></a>构建大型App时的建议</h3><p>将路由声明为一个 const 的 <code>object</code>变量。</p>
+<blockquote>
+<p>It is often useful to specify the routes as a <code>const</code> variable (e.g., <code>routes</code>) that is an object containing paths and which component to render for that path. You can use the <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/hooks/use-routes"><code>useRoutes()</code></a> hook to then render this object <em>instead</em> of specifying a <code>&lt;Routes&gt;</code> element. This is only recommended for particularly large applications.</p>
+</blockquote>
+<p>You can use the <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/hooks/use-match"><code>useMatch()</code></a> hook to get access to the current <code>path</code>; this can be useful for specifying e.g., relative image paths.</p>
+<h2 id="URL参数"><a href="#URL参数" class="headerlink" title="URL参数"></a>URL参数</h2><p>URL中可以在最后以 <code>:param</code> 来指定一个参数。比如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.github.com/users/:username</span><br></pre></td></tr></table></figure>
+
+<p>的 <code>username</code> 就是指向github里的一个特定的用户。<code>https://api.github.com/users/0xtopus</code> 的 <code>username</code>参数值就是 <code>0xtopus</code> 。</p>
+<p>你可以在React Router里使用下列语法来支持URL参数：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Route</span> path=<span class="string">&#x27;posts/:postId&#x27;</span> element=&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">BlogPost</span> /&gt;</span></span>&#125; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>当URL和 <code>posts/</code> 匹配的时候，后面的参数会自动地被分配给变量 <code>postId</code> ，比如 <code>post/hello</code> 的<code>postId</code> 就是“hello”， <code>post/2022-10-31</code> 的 <code>postId</code> 就是”2022-10-31”。</p>
+<p>React Router也支持多段参数，比如：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Route</span> path=<span class="string">&quot;posts/:date/:title&quot;</span> element=&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">BlogPost</span> /&gt;</span></span>&#125; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>就有两个参数：<code>date</code> 和 <code>title</code> 。</p>
+<p>你可以使用 <code>react-router</code> 提供的 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/hooks/use-params"><code>useParams</code></a> 钩子函数来获取URL参数。这个钩子函数会返回一个 <code>object</code> 类型的变量，它的key是URL变量的名称，值是当前URL变量的值；如果是多段参数，那么对象里就会有多个key和value对应不同的变量名和变量值：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useParams &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">BlogPost</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="comment">//access the URL params as an object</span></span><br><span class="line">    <span class="comment">//it&#x27;s also common to use object destructuring here</span></span><br><span class="line">    <span class="keyword">const</span> urlParams = <span class="title function_">useParams</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &#123;<span class="comment">/* postId was the URL parameter from the above example! */</span>&#125;</span><br><span class="line">        &lt;h1&gt;<span class="title class_">You</span> are looking at blog post &#123;urlParams.<span class="property">postId</span>&#125;&lt;/h1&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="query-param"><a href="#query-param" class="headerlink" title="query param"></a>query param</h3><p>如果你需要使用query parameters (e.g., the <code>?key1=value1&amp;key2=value2</code> part of the URL)，你可以使用 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/hooks/use-params"><code>useSearchParams()</code></a> 钩子函数。它和state钩子函数很像，但值会被存在URL query parameter中而不是组件本身里。</p>
+<p>记住，只有在变量值不与一个恒定资源（consistent resource）对应的时候（比如 search queries），我们才使用query parameter！</p>
+<blockquote>
+<p>在 Web 开发中，查询参数是指出现在 URL 中的键值对，通常用于向服务器请求特定资源或者对资源进行过滤、排序或其他操作。在 React 应用程序中，可能会利用查询参数来获取或展示特定内容。</p>
+<p>这段话强调了查询参数应该被用于像搜索查询等不对应于一致资源的数值。这意味着查询参数适合用于表示不同搜索条件下的内容、筛选或排序等功能，而不应该用于代表资源的唯一标识或属性。</p>
+<p>换句话说，如果您的应用中有一些数据与特定资源相关联，例如单一的用户资料或者文章内容，那么最好使用其他方法，比如路由参数（route parameters）或者其他标识符来传递这些信息，而不是依赖查询参数。查询参数更适合用于处理与资源内容无关的事项，比如搜索查询、过滤条件等。</p>
+<p>总的来说，这个提示的目的是指导开发者在使用 React 框架时，正确选择和使用查询参数，并避免滥用它们来表示资源的唯一标识或属性。</p>
+</blockquote>
+<h2 id="Linking"><a href="#Linking" class="headerlink" title="Linking"></a>Linking</h2><p>使用了Router之后，我们就可以根据不同的URL来渲染出不同的页面了。但是，如何在不同的页面中切换呢？</p>
+<p>如果直接使用 <code>&lt;a&gt;</code> 标签，那么每次跳转都会向服务器发送http请求，这过于麻烦。</p>
+<p>我们可以使用 React Router 提供的 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/components/link"><code>&lt;link&gt;</code></a> 元素来达到只换URL来渲染另一个页面而不发送http请求的效果，该组件的效果和 <code>&lt;a&gt;</code> 标签十分类似，但它们不可以相互嵌套！</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Link</span> to=<span class="string">&quot;about&quot;</span>&gt;<span class="title class_">Click</span> to visit the <span class="title class_">About</span> <span class="title class_">Page</span>&lt;/<span class="title class_">Link</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>该组件使用props <code>to</code> 来表示要去到的URL的相对路径，如果你要返回上一级，可以使用 <code>..</code> 来表示。</p>
+<p>你还可以使用React Router提供的 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/components/nav-link"><code>&lt;NavLink&gt;</code></a> 组件。该组件会给当前选中的link捆绑上一个类，因此你可以使用CSS来将其高亮显示，这通常被用于导航条来给用户指示当前所在的页面。你可以在文档中看到使用三元运算符来添加类名，或者你可以参考我自己写的这个例程：<a target="_blank" rel="noopener" href="https://playcode.io/1698238">NavLink示例</a></p>
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><p>有时候，无需用户操作，页面也需要自动跳转到另一个URL，比如当用户提交完表单后，一般会自动重定向到首页。</p>
+<p>这时可以使用 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/hooks/use-navigate"><strong><code>useNavigate()</code></strong></a> 钩子函数。当调用这个函数的时候会创建并返回另一个函数，按惯例我们会给其命名为一个常量 <code>navigate</code>，当调用 <code>navigate()</code> 时，我们将需要重定向到的URL路径（类似 <code>link</code> 里的 <code>to</code> props的值）当成参数传递给它并触发重定向。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useNavigate &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//A simple form component</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Form</span>(<span class="params">props</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> navigate = <span class="title function_">useNavigate</span>(); <span class="comment">//access navigate function</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//event handler for the form</span></span><br><span class="line">    <span class="keyword">const</span> handleSubmit = <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">        event.<span class="title function_">preventDefault</span>();</span><br><span class="line">        <span class="comment">//do form submission work here</span></span><br><span class="line"></span><br><span class="line">        <span class="title function_">navigate</span>(<span class="string">&quot;/home&quot;</span>) <span class="comment">//navigate to the `/home` route</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;handleSubmit&#125;</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：仅在事件的回调函数里调用 <code>navigate</code> 函数！</strong>不要在组件函数内部使用！在组件内部，如果你需要重定向，请使用 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/components/navigate"><code>&lt;Navigate&gt;</code></a>  元素！该元素也需要一个 <code>to</code> props来指示重定向后的页面，就像link一样！</p>
+<p>一般很少使用 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/components/navigate"><code>&lt;Navigate&gt;</code></a>  元素，除非你确定该跳转操作不需要任何用户操作。一般的，不要在显示的内容内部（比如 <code>&lt;div&gt;</code> ）使用 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/components/navigate"><code>&lt;Navigate&gt;</code></a>  元素；而是<strong>确定你在什么情况下需要跳转</strong>，然后用 <code>if</code> 语句在该情况下return <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/components/navigate"><code>&lt;Navigate&gt;</code></a>  元素。</p>
+<p>一个有用的例子就是只对已登录的用户显示内容：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ProtectedPage</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="comment">//...determine if user is logged in (eg., via AJAX)</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!userIsLoggedIn) &#123; <span class="comment">//if no user, send to sign in</span></span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/signin&quot;</span>&gt;</span>;</span></span><br><span class="line"><span class="language-xml">  &#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  //otherwise show content</span></span><br><span class="line"><span class="language-xml">  return (</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>protected content!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  )</span></span><br><span class="line"><span class="language-xml">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以进一步将授权访问封装成一个组件，以达到复用的效果。然后将需要授权才能访问的内容放在<a href="#Nested-Routes">Nested Routes</a>里：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">RequireAuth</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="comment">//...determine if user is logged in (eg., via AJAX)</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!userIsLoggedIn) &#123; <span class="comment">//if no user, send to sign in</span></span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/signin&quot;</span>&gt;</span>;</span></span><br><span class="line"><span class="language-xml">  &#125;</span></span><br><span class="line"><span class="language-xml">  else &#123; //otherwise, show the child route content</span></span><br><span class="line"><span class="language-xml">    return <span class="tag">&lt;<span class="name">Outlet</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">  &#125;</span></span><br><span class="line"><span class="language-xml">&#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">function App(props) &#123;</span></span><br><span class="line"><span class="language-xml">  return (</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;/* protected routes */&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Route</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">RequireAuth</span> /&gt;</span>&#125;&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;profile&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">ProfilePage</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;secret&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">SecretPage</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;/* public routes */&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;signin&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">SignInPage</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  )</span></span><br><span class="line"><span class="language-xml">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意， <code>&lt;RequireAuth&gt;</code> 没有提供 <code>path</code> props，所以只要当它的子组件URL匹配时，该组件就会自动被渲染，启动授权判断。</p>
+<h2 id="React-Routing和Hosting"><a href="#React-Routing和Hosting" class="headerlink" title="React Routing和Hosting"></a>React Routing和Hosting</h2><p>当您希望在非开发服务器（如 Github Pages）上部署应用程序时，React Router 的客户端路由有一些需要额外注意的事项（例如，部署 create-react-app 项目时会发生的情况）。</p>
+<p>首先，思考一下在浏览器的 URL 栏中输入路径（如 <code>https://domain.com/about</code> 访问 &#x2F;about 路径时）以导航到该路由时会发生什么。这将在带有 &#x2F;about 路径的 URI 上为资源创建一个 HTTP 请求。当网络服务器收到该请求时，服务器将执行<strong>服务器端路由</strong>（<em>server-side routing</em>），并尝试访问该位置的资源（例如，它将查找  <code>/about/index.html</code> 页面）。但这并不是你想要的结果–因为该资源并不存在，服务器将返回 404 错误。</p>
+<p>但实际上你想要服务器在收到请求后返回根目录下的 <code>/index.html</code> ，以及并添加适当的 JavaScript 代码，这样客户端路由就能更改浏览器的 URL 栏，并在 <code>/about</code> 路由上显示内容。</p>
+<p>如果你有一个web server，那么这是完全可能的（to <em>not</em> perform server-side routing and instead always return <code>/index.html</code> no matter what resource is requested）; indeed, this is what the Create React App development server does.</p>
+<p>但 GitHub Pages 做不到这点。不过，你依然有几种方法来处理这个情况：</p>
+<ol>
+<li><p>您可以使用 <a target="_blank" rel="noopener" href="https://reactrouter.com/en/6.4.4/router-components/hash-router"><code>&lt;HashRouter&gt; </code></a>  代替 <code>&lt;BrowserRouter&gt;</code>： <code>&lt;HashRouter&gt;</code> 使用 URI 的片段标识符部分来记录和跟踪用户正在查看的路由。因此，HTTP 请求被发送到 <code>https://domain.com/index.html#/about</code>以获取 &#x2F;about 路由。由于 index.html 是默认资源，因此可以缩写为 <code>https://domain.com/#/about</code>。</p>
+<p>通过这种方式，您可以始终请求适当的资源（<code>/index.html</code>），但仍可执行客户端路由。但不推荐这种方法，因为您的 URL 中会出现多余的 # 符号（这会使使用片段进行内页导航变得更加困难），而且访问 <code>domain.com/about</code> 仍会导致 404 错误。</p>
+</li>
+<li><p>另一种方法是将服务器的 404 页面替换为指向您的 <code>index.html</code>（使用服务器端路由）的页面。<a target="_blank" rel="noopener" href="https://github.com/rafrex/spa-github-pages">spa-github-pages</a> 提供了一些使用 GitHub Pages 执行此操作的模板，但这是一种 “笨拙 “的方法，因此也不推荐使用。</p>
+</li>
+<li><p><strong>最好的方法</strong>是使用能更好支持单页面应用所需的服务器端路由的托管系统（web hosting system）。</p>
+<p>比如，<a target="_blank" rel="noopener" href="https://firebase.google.com/docs/hosting/">Firebase Hosting</a> 是提供网站托管服务的一种解决方案，它允许您指定重写规则，无论 HTTP 请求指定的是哪个路由，服务器都会返回您的 <code>index.html</code>。这种配置允许单页应用的路由逻辑由客户端处理，而服务器始终返回同一个 HTML 文件，然后客户端应用程序负责加载并处理不同的路由。</p>
+<blockquote>
+<p>Create React App provides <a target="_blank" rel="noopener" href="https://create-react-app.dev/docs/deployment/#firebase">instructions</a> on deploying to Firebase Hosting, including a simple wizard configuration that allows you to configure your site as a single-page application.</p>
+</blockquote>
+</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/AirCloud">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
