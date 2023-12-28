@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta property="og:type" content="website">
+    <meta name="description" content="what heppens when an octopus aspires to be a hacker? - Hexadecimal + Octopus = 0xtopus the h4x0r!">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        AJAX请求 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> h4x0rdecimal 0xtopus </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>0xtopus</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AJAX%E8%AF%B7%E6%B1%82"><span class="toc-text">AJAX请求</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX%E7%AE%80%E4%BB%8B"><span class="toc-text">AJAX简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fetching-Data"><span class="toc-text">Fetching Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E5%89%8D%E5%85%BC%E5%AE%B9"><span class="toc-text">向前兼容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B"><span class="toc-text">异步编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E8%81%94Promise"><span class="toc-text">串联Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-text">错误处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">其他数据格式</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> h4x0rdecimal 0xtopus </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AJAX请求
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-12-27 13:04:40</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>参考：<a target="_blank" rel="noopener" href="https://info340.github.io/ajax.html#fetching-data">https://info340.github.io/ajax.html#fetching-data</a></p>
+<h1 id="AJAX请求"><a href="#AJAX请求" class="headerlink" title="AJAX请求"></a>AJAX请求</h1><p>欲读此章，请先了解RESTful Web APIs，可以参考<a target="_blank" rel="noopener" href="https://info201.github.io/apis.html#accessing-web-apis">这里</a>。</p>
+<p>本篇介绍了如何使用JavaScript来发送http请求，以及当需要发送web请求和执行其他任务时如何使用<em>异步编程</em>技术。</p>
+<h2 id="AJAX简介"><a href="#AJAX简介" class="headerlink" title="AJAX简介"></a>AJAX简介</h2><p>一般地，http请求由浏览器发送。但现代动态网页需要使用JavaScript来使页面无需用户操作浏览器发送请求而能够自动地更新。这种能够绕过浏览器发送请求的技术叫做“AJAX”（Asynchronous JavaScript and XML）。虽然现在更倾向于使用 JSON （JavaScript Object Notation）而非 XML 来表示数据，但由于前者不好发音所以我们仍然叫其“AJAX”。</p>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>XML的语法过于复杂，这使得用XML来表示数据体量太大而且很难解析。于是，JavaScript的开发者发明了 JSON，它的语法和JavaScript的对象非常相似：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;firstName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Alice&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lastName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Smith&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;favorites&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;music&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jazz&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;food&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pizza&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;numbers&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="number">12</span><span class="punctuation">,</span> <span class="number">42</span><span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>但是，它的语法比JavaScript更加严格，以下是需要特别注意的几点：</p>
+<ul>
+<li>JSON 总是在 top-level 定义对象（<code>&#123;&#125;</code>）；</li>
+<li>JSON 不可以有多余的逗号或其他字符；</li>
+<li>JSON没有注释；</li>
+<li>JSON的 key必须用<strong>双引号</strong>括起来</li>
+<li>JSON中不可以包含函数，JSON的 value只能是<strong>字符</strong>，<strong>数字</strong>，<strong>布尔值</strong>（<code>true</code> 或者 <code>false</code>），<strong>数组</strong>（<code>[]</code>），或者<strong>对象</strong>；</li>
+</ul>
+<p>JavaScript也提供了一个对象 <code>JSON</code> ，你可以使用里面提供的方法来将 JSON解析为对象，或者将对象转换成 JSON：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//convert from Object to encoded String</span></span><br><span class="line"><span class="keyword">let</span> personObj = &#123;<span class="attr">firstName</span>:<span class="string">&quot;Alice&quot;</span>, <span class="attr">lastName</span>:<span class="string">&quot;Smith&quot;</span>, <span class="attr">id</span>:<span class="number">12</span>&#125; <span class="comment">//JavaScript object</span></span><br><span class="line"><span class="keyword">let</span> personString = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(personObj); <span class="comment">//turn object into JSON string</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(personString); <span class="comment">//=&gt; &#x27;&#123;&quot;firstName&quot;:&quot;Alice&quot;,&quot;lastName&quot;:&quot;Smith&quot;,&quot;id&quot;:12&#125;&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> personString); <span class="comment">//=&gt; &#x27;string&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//convert from encoded String to Object</span></span><br><span class="line"><span class="keyword">let</span> favoritesString = <span class="string">&#x27;&#123;&quot;music&quot;:&quot;jazz&quot;, &quot;numbers&quot;:[12,42]&#125;&#x27;</span>; <span class="comment">//a string, not an object!</span></span><br><span class="line"><span class="keyword">let</span> favoritesObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(favoritesString); <span class="comment">//turn JSON string into object</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(favoritesObj); <span class="comment">//=&gt; &#123; music: &#x27;jazz&#x27;, numbers: [ 12, 42 ] &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> favoritesObj); <span class="comment">//=&gt; &#x27;object&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>注意：</strong>如果你的 JSON 格式没有写对，那么 <code>JSON.parse()</code> 函数就会抛出一个 <code>SyntaxError</code>。如果 JSON 文档很长，那么有时候很难发现哪里出了错误，一些<a target="_blank" rel="noopener" href="https://jsonformatter.curiousconcept.com/">在线工具</a>也许能帮上忙。</li>
+</ul>
+<h2 id="Fetching-Data"><a href="#Fetching-Data" class="headerlink" title="Fetching Data"></a>Fetching Data</h2><p>浏览器内置有支持AJAX的全局变量 <code>XMLHttpRequest</code>。但这个API用起来<strong>非常复杂</strong>；使用 JQuery 也许能避免一些复杂性，但随着 JQuery 正在<a target="_blank" rel="noopener" href="https://youmightnotneedjquery.com/">被逐渐淘汰</a>，咱可以使用现代浏览器提供的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"><strong><code>fetch()</code></strong></a> API 来发送AJAX请求！</p>
+<p>你只需往 <code>fetch()</code> 函数里传入URL，即可下载对应的数据：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;https://domain.com/data&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>注意：</strong>在某些浏览器中，你将被禁止在  <code>file://</code> protocol (e.g., by double-clicking on the <code>.html</code> file) 里发送AJAX请求，这是为了防止你不小心运行了某些带有恶意代码的 <code>html</code> 文件。</li>
+<li>记住，一定要使用 <strong>web server</strong> 来发送AJAX请求！（比如本地运行的 <code>live-server</code>）</li>
+</ul>
+<p>还有，记得使用<strong>相对路径</strong>来指出你所需要fetch的文件或API的位置。这里的相对路径指的是<u>相对当前浏览的 <strong><code>.html</code></strong> 文件的路径！</u>不要误以为是相对当前调用 <code>fetch()</code> 的 <code>.js</code> 文件的相对路径！</p>
+<h3 id="向前兼容"><a href="#向前兼容" class="headerlink" title="向前兼容"></a>向前兼容</h3><p>如果你需要支持没有内置 <code>fetch()</code> 的旧版的浏览器，使用CDN引入外部库<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Polyfill"><strong>polyfill</strong></a>来引入 <code>fetch()</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- put this BEFORE your own script! --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h2><p>当你使用 <code>fetch()</code> 来下载数据的时候，数据并非一步到位，而是需要一点时间来下载。因此，调用 <code>fetch</code> 函数只能说是数据下载的<strong>”开始“</strong>，而在下载数据的时候，我们的JavaScript解释器会继续向下执行其他代码，而我们并不知道啥时候能把数据下载完成，此即”异步“：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;About to send request&#x27;</span>); <span class="comment">//statement 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//send request for data to the url</span></span><br><span class="line"><span class="title function_">fetch</span>(url);  <span class="comment">//statement 2</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Sent request&#x27;</span>); <span class="comment">//statement 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//The data is actually received sometime later,</span></span><br><span class="line"><span class="comment">//when the JS interpreter is down here!</span></span><br></pre></td></tr></table></figure>
+
+<p><code>fetch()</code> 函数会返回一个对象变量  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise"><strong>Promise</strong></a> 。Promise对象内就包含着暂时还不能获取的（因为还要等待下载完成）的数据的值 – 你可以认为这就像是一个真正的“Promise”：它承诺在未来给你某些数据，但是承诺既可以被兑现，也同时有可能被打破！</p>
+<blockquote>
+<p>Promises are the modern way of handling asynchronous functions, but as part of the ES6 standard they are <a target="_blank" rel="noopener" href="http://caniuse.com/#feat=promises">not yet available to all browsers</a> (specifically: Internet Explorer). So you’ll need to include <a target="_blank" rel="noopener" href="https://github.com/stefanpenner/es6-promise"><em>another polyfill</em></a> to support IE. This is also available from a <a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/es6-promise">CDN</a>.</p>
+</blockquote>
+<p>Promise 有三种状态：</p>
+<ul>
+<li>Pending：等待数据下载完成；</li>
+<li>Fulfilled：数据下载完成；</li>
+<li>Rejected：数据获取失败；</li>
+</ul>
+<p>我们可以使用不同的方法来处理不同状态下的Promise：</p>
+<ul>
+<li>当Promise为Fulfilled的时候，使用 <code>.then()</code> 方法来对数据进行处理，给该方法传递一个回调函数（往往是匿名函数！）来告诉计算机当数据成功获取后该做些什么：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">onSuccessCallback</span>(<span class="params">response</span>) &#123; <span class="comment">//what to do when we get the response</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//When fulfilled, execute the callback function (which will be passed the response)</span></span><br><span class="line"><span class="keyword">let</span> promise = <span class="title function_">fetch</span>(url);</span><br><span class="line">promise.<span class="title function_">then</span>(onSuccessCallback);</span><br><span class="line"></span><br><span class="line"><span class="comment">//It is much more common to use anonymous variables/callbacks:</span></span><br><span class="line"><span class="title function_">fetch</span>(url).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意：传递的回调函数通常具有一个变量，即我们需要获取的数据值。这是一个对象，代表着对http请求的回复，你可以使用一些keys来获取其内部的值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="title function_">fetch</span>(url);</span><br><span class="line">promise.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>( response.<span class="property">url</span> ); <span class="comment">//a string of where the request was sent</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>( response.<span class="property">status</span> ); <span class="comment">//the HTTP status code (e.g., 200, 404)</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>该对象拥有一个 <code>body</code> 属性，代表了HTTP请求应答的主体（data content）。但这个属性存储的数据是纯纯的 <code>0</code> 和 <code>1</code> 数据流，要把它变成可读可用的格式，你需要调用JavaScript的 <code>.json()</code> 函数来处理它。（还有一个类似的方法叫做<code>.text()</code>）</p>
+<h3 id="串联Promise"><a href="#串联Promise" class="headerlink" title="串联Promise"></a>串联Promise</h3><p>在使用 <code>.json()</code> 函数来处理fetch到的数据的body时，也需要一定的时间（特别是体量较大的数据），干等着肯定不是什么好办法。因此，JavaScript的 <code>.json()</code> 也是一个异步函数，它也会返回一个Promise。</p>
+<p>当使用 <code>.then()</code> 时，我们可以返回另一个Promise，通过将 <code>.then()</code> 串联起来，我们可以对数据进行一连串的变换：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">makeQuestion</span>(<span class="params">dataString</span>) &#123; <span class="comment">//a function to make a string a question</span></span><br><span class="line">    <span class="keyword">return</span> dataString + <span class="string">&#x27;???&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//image a hypothetical asynchronous function `getAsyncString`</span></span><br><span class="line"><span class="comment">//it returns a Promise (placeholder) for a string load from a given source</span></span><br><span class="line"><span class="keyword">let</span> originalPromise = <span class="title function_">getAsyncString</span>(myDataSource);</span><br><span class="line"></span><br><span class="line"><span class="comment">//when the original promise is fulfilled, call `makeQuestion` on it</span></span><br><span class="line"><span class="comment">//`questionPromise` will be a placeholder for that transformed data</span></span><br><span class="line"><span class="keyword">let</span> questionPromise = originalPromise.<span class="title function_">then</span>(makeQuestion);</span><br><span class="line"></span><br><span class="line"><span class="comment">//when the `questionPromise` is fulfilled, call an anonymous callback on it</span></span><br><span class="line"><span class="comment">//the callback will be passed the transformed (&quot;question&quot;) data</span></span><br><span class="line">questionPromise.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">data</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data); <span class="comment">//data will be a question!</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>使用匿名变量将上述代码写成串联形式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">getAsyncString</span>()</span><br><span class="line">    .<span class="title function_">then</span>(makeQuestion)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">data</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>当我们成功获取数据后，即在调用 <code>.then()</code> 并随后在其的回调函数里返回一个新的Promise时，外层的Promise会自动获得返回的Promise的状态。这意味着你可以在前一个 <code>.then()</code> 里返回一个新的Promise，然后在后面串接的 <code>.then()</code> 里对这个新的Promise做出相应的操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> outerPromise = <span class="title function_">getAsyncString</span>(myFirstSource).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">firstData</span>)&#123;</span><br><span class="line">    <span class="comment">//do something with `firstData`</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> newPromise = <span class="title function_">getAsyncString</span>(mySecondSource); <span class="comment">//a second async call!</span></span><br><span class="line">    <span class="keyword">return</span> newPromise; <span class="comment">//return the promise.</span></span><br><span class="line">&#125;); <span class="comment">//`outerPromise` now takes on the state and data of `newPromise`</span></span><br><span class="line"></span><br><span class="line">outerPromise.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">secondData</span>)&#123;</span><br><span class="line">    <span class="comment">//do something with `secondData`, the data downloaded from `mySecondSource`</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>回到刚才说的 <code>.json()</code> 函数，当使用 <code>fetch()</code> 获取第一个数据之后，我们可以在第一个 <code>then()</code> 的回调函数里让它返回另一个Promise，并在随后串联的 <code>.then()</code> 的回调函数里对数据进行进一步的操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url)  <span class="comment">//start the download</span></span><br><span class="line">    .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>) &#123;  <span class="comment">//when done downloading</span></span><br><span class="line">        <span class="keyword">let</span> dataPromise = response.<span class="title function_">json</span>();  <span class="comment">//start encoding into an object</span></span><br><span class="line">        <span class="keyword">return</span> dataPromise;  <span class="comment">//hand this Promise up</span></span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">data</span>) &#123;  <span class="comment">//when done encoding</span></span><br><span class="line">        <span class="comment">//do something with the data!!</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(data); <span class="comment">//will now be encoded as a JavaScript object!</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>当http请求失败的时候，我们使用 <code>.catch()</code> 来处理错误：This callback function will be passed an <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error object</a> that contains details about the error.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>) &#123;  <span class="comment">//when done downloading</span></span><br><span class="line">        <span class="keyword">return</span> response.<span class="title function_">json</span>();  <span class="comment">//second promise is anonymous</span></span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">data</span>) &#123;  <span class="comment">//when done encoding</span></span><br><span class="line">        <span class="comment">//do something with the data!!</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(data); <span class="comment">//will now be encoded as a JavaScript object!</span></span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">catch</span>(<span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="comment">//do something with the error</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(err);  <span class="comment">//e.g., show in the console</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>.catch()</code> 对其之前串联的<strong>所有Promise</strong>发生的错误都起效，一般我们会在发生错误时提示用户，比如在DOM中弹出一个alert。</li>
+<li>你可以在 <code>.catch()</code> 后再串联 <code>.then()</code> ，但这些后续的回调函数只会在不发生错误的时候被执行。</li>
+</ul>
+<p><strong>注意</strong>：Promise只有在<u>真正的错误</u>发生的时候才会被“reject”，如果服务器返回了诸如 <a target="_blank" rel="noopener" href="https://httpstatuses.com/401">401</a> 错误（对资源无访问权限）或只是一条“invalid API key”信息，<code>.catch()</code> 不会处理上述信息！</p>
+<blockquote>
+<p>You can use the <code>response.status</code> and <code>response.ok</code> properties to check the status of the HTTP response.</p>
+<p>你可以使用  <code>response.status</code> and <code>response.ok</code> 属性来检查HTTP response。</p>
+</blockquote>
+<h2 id="其他数据格式"><a href="#其他数据格式" class="headerlink" title="其他数据格式"></a>其他数据格式</h2><p><code>.fetch()</code> 对 <code>json</code> 格式的数据非常有效，但你有时候需要处理不同格式的数据，比如 comma-separated values (CSV) 等， 以下是几种可以使用的方法：</p>
+<ul>
+<li>对于plain text，你同样可以使用 <code>.fetch()</code> 来下载它们，只不过这回你调用 <code>text()</code> 函数来解析它们：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url)  <span class="comment">//start the download</span></span><br><span class="line">    .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>) &#123;  <span class="comment">//when done downloading</span></span><br><span class="line">        <span class="keyword">let</span> dataPromise = response.<span class="title function_">text</span>();  <span class="comment">//start encoding into a String</span></span><br><span class="line">        <span class="keyword">return</span> dataPromise;  <span class="comment">//hand this Promise up</span></span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">text</span>) &#123;  <span class="comment">//when done encoding</span></span><br><span class="line">        <span class="comment">//do something with the text data!!</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(text); <span class="comment">//will now be encoded as a JavaScript string!</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>text()</code> 函数支持所有文本数据，不论是 <code>.txt</code> 还是 <code>.csv</code> 或 <code>.json</code> 和 <code>.js</code> 文件，它都支持！如果你使用 <code>.text()</code> 来编码 JSON数据，那么你可以使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"><code>JSON.parse()</code></a>  来将其转换为JavaScript对象！</p>
+</blockquote>
+<p>虽然 <code>.text()</code> 可以将收到的数据进行编码，使其成为JavaScript 的 String，但我们往往还需要将其转换为对我们有用的数据格式，比如，你可能需要将一段由 CSV 转换而来的字符转换到一个对象数组中来对这些数据进行分析。</p>
+<p>与其辛苦自己写这些转换函数，你可以利用外部三方库来搞定这些杂活：</p>
+<p> 比如 <a target="_blank" rel="noopener" href="https://github.com/d3/d3-fetch"><strong><code>d3.dsv()</code></strong></a>, <a target="_blank" rel="noopener" href="https://d3js.org/">d3</a> visualization library的一个组件. <code>d3.fetch()</code>  为 <code>fetch()</code> 提供了非常方便的Wrapper函数，能高效地解析收到的数据。</p>
+<p>要引入 <code>d3.fetch()</code>，方法如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://d3js.org/d3-dsv.v1.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://d3js.org/d3-fetch.v1.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/AirCloud">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
