@@ -693,6 +693,8 @@ git reset --hard <commit>
 
 你也可以使用`git reflog`来查看之前的操作，并且可以通过`git reflog`里提供的commit版本号来再次使用`reset --hard`命令回溯到操作前所在的commit版本（可以作为reset错误后的后悔药！）
 
+<img src="..\img\reflog.png" style="zoom:75%;" />
+
 然后，对远程仓库使用强行同步更新：
 
 ```bash
@@ -917,3 +919,23 @@ git reset HEAD~1	# undo the latest commit
 
 
 
+# 新技巧
+
+## 查看不同commit的改动
+
+- 使用 `git diff` 命令：
+
+```bash
+# git diff hash1 hash2  --stat ：显示两次提交之间被更改的文件：
+
+$ git diff 86234 b696bf  --stat
+ Docs/改动说明.md                               |    57 +
+ .../FTM_v1.0/HARDWARE/MOTORCONTROL/motorcontrol.c  |    81 +-
+ .../FTM_v1.0/HARDWARE/MOTORCONTROL/motorcontrol.h  |     2 +-
+ Project/FTM_v1.0/HARDWARE/TIMER/timer.c            |   129 +-
+ Project/FTM_v1.0/HARDWARE/TIMER/timer.h            |     7 +-
+
+# git diff hash1 hash2 [文件名]：显示指定的文件在两次提交中被更改的具体情况
+```
+
+参考链接：[如何使用git比较两次commit之间的差异文件](https://blog.csdn.net/u012830148/article/details/77497240)
